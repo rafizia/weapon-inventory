@@ -2,7 +2,9 @@ Link App: [Weapentory](https://weapentory.adaptable.app/main/)<br>
 <hr>
 
 3. Jelaskan mengapa kita menggunakan virtual environment? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment?
-Jawab:<br>
+
+Jawab:
+
 Kita perlu menggunakan virtual environment saat membuat aplikasi web berbasis Django karena beberapa alasan, yaitu:
 * **Isolasi dependensi aplikasi**<br>
 Setiap aplikasi web Django memiliki dependensinya sendiri. Jika tidak menggunakan virtual environment, maka semua dependensi dari semua aplikasi akan diinstal di sistem operasi. Hal ini dapat menyebabkan konflik dependensi dan membuat aplikasi menjadi tidak stabil.
