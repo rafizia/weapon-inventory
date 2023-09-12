@@ -55,6 +55,7 @@ f. Membuat sebuah routing pada `urls.py` aplikasi `main` untuk memetakan fungsi 
 * Menambahkan rute URL di `urls.py` dalam direktori proyek `weapon_inventory` sesuai tutorial 1
 
 g. Melakukan deployment ke Adaptable sesuai tutorial 0, tidak lupa mengganti start command menjadi `python manage.py migrate && gunicorn weapon_inventory.wsgi`
+<br><br>
 
 
 2. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara `urls.py`, `views.py`, `models.py`, dan `berkas html`.
@@ -98,19 +99,19 @@ Kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual 
 Jawab:
 
 * **MVC (Model-View-Controller)**<br>
-**Model**: Representasi data aplikasi.<br>
-**View**: Bertanggung jawab untuk menampilkan data dari Model dan menanggapi interaksi pengguna.<br>
-**Controller**: Menerima masukan dari pengguna, memprosesnya, dan memutuskan bagaimana Model dan View harus berinteraksi. 
-Perbedaan utama: Dalam pola MVC, Model dan View tidak berinteraksi secara langsung. Interaksi antara keduanya dikendalikan oleh Controller.
+- **Model**: Representasi data aplikasi.<br>
+- **View**: Bertanggung jawab untuk menampilkan data dari Model dan menanggapi interaksi pengguna.<br>
+- **Controller**: Menerima masukan dari pengguna, memprosesnya, dan memutuskan bagaimana Model dan View harus berinteraksi.<br>
+- **Perbedaan utama**: Dalam pola MVC, Model dan View tidak berinteraksi secara langsung. Interaksi antara keduanya dikendalikan oleh Controller.
 
 * **MVT (Model-View-Template)**<br>
-**Model**: Representasi data aplikasi.<br>
-**View**: Menangani tampilan data. Dalam Django, Template dan View bersama-sama bertanggung jawab untuk menghasilkan tampilan.<br>
-**Template**: Berisi tampilan HTML yang memungkinkan penggunaan sintaks template khusus Django untuk menggabungkan data dari Model ke dalam tampilan.
-Perbedaan utama: MVT adalah adaptasi dari MVC, tetapi dalam MVT, Template memainkan peran yang lebih kuat dalam menghasilkan tampilan, sedangkan View mengelola logika aplikasi.
+- **Model**: Representasi data aplikasi.<br>
+- **View**: Menangani tampilan data. Dalam Django, Template dan View bersama-sama bertanggung jawab untuk menghasilkan tampilan.<br>
+- **Template**: Berisi tampilan HTML yang memungkinkan penggunaan sintaks template khusus Django untuk menggabungkan data dari Model ke dalam tampilan.<br>
+- **Perbedaan utama**: MVT adalah adaptasi dari MVC, tetapi dalam MVT, Template memainkan peran yang lebih kuat dalam menghasilkan tampilan, sedangkan View mengelola logika aplikasi.
 
 * **MVVM (Model-View-ViewModel)**<br>
-**Model**: Representasi data aplikasi.<br>
-**View**: Merupakan representasi tampilan yang dikendalikan oleh ViewModel. View dalam MVVM biasanya lebih pasif dan hanya menampilkan data yang disediakan oleh ViewModel.<br>
-**ViewModel**: Bertanggung jawab untuk mengelola tampilan dan menyediakan data yang diperlukan oleh View.
-Perbedaan utama: MVVM memperkenalkan ViewModel yang berperan penting dalam menghubungkan Model dengan View. ViewModel menyediakan data dan perilaku yang diperlukan oleh View.
+- **Model**: Representasi data aplikasi.<br>
+- **View**: Merupakan representasi tampilan yang dikendalikan oleh ViewModel. View dalam MVVM biasanya lebih pasif dan hanya menampilkan data yang disediakan oleh ViewModel.<br>
+- **ViewModel**: Bertanggung jawab untuk mengelola tampilan dan menyediakan data yang diperlukan oleh View.<br>
+- **Perbedaan utama**: MVVM memperkenalkan ViewModel yang berperan penting dalam menghubungkan Model dengan View. ViewModel menyediakan data dan perilaku yang diperlukan oleh View.
