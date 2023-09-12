@@ -1,7 +1,7 @@
 Link App: [Weapentory](https://weapentory.adaptable.app/main/)<br>
 
-Nama: Muhammad Rafi Zia Ulhaq
-NPM: 2206814551
+Nama: Muhammad Rafi Zia Ulhaq<br>
+NPM: 2206814551<br>
 Kelas: PBP B
 <hr>
 
@@ -56,32 +56,35 @@ f. Membuat sebuah routing pada `urls.py` aplikasi `main` untuk memetakan fungsi 
 
 g. Melakukan deployment ke Adaptable sesuai tutorial 0, tidak lupa mengganti start command menjadi `python manage.py migrate && gunicorn weapon_inventory.wsgi`
 
+
 2. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara `urls.py`, `views.py`, `models.py`, dan `berkas html`.
 
 Jawab:
+
 ![Bagan request client](https://github.com/rafizia/weapon-inventory/blob/master/image.png?raw=true)
 
 * Client Request: Sebuah request pertama kali diterima oleh Django dari client, seperti web browser. Request ini berisi informasi seperti URL yang dituju ataupun berupa sebuah data.
 
-* `urls.py`: File ini berperan sebagai peta rute untuk mengarahkan request ke view yang sesuai. Saat request masuk, Django akan mencocokkan URL dengan pola yang didefinisikan dalam urls.py.
+* `urls.py`: File ini berperan sebagai peta rute untuk mengarahkan request ke view yang sesuai. Saat request masuk, Django akan mencocokkan URL dengan pola yang didefinisikan dalam `urls.py`.
 
-* `views.py`: Setelah URL yang cocok ditemukan, request akan dikirimkan ke fungsi view yang sesuai dalam views.py. View berfungsi untuk memproses data, memanggil model, dan mempersiapkan data untuk ditampilkan di halaman web.
+* `views.py`: Setelah URL yang cocok ditemukan, request akan dikirimkan ke fungsi view yang sesuai dalam `views.py`. View berfungsi untuk memproses data, memanggil model, dan mempersiapkan data untuk ditampilkan di halaman web.
 
 * `models.py`: Models adalah representasi struktur data dalam basis data. Ketika view memerlukan akses ke data, view akan berinteraksi dengan model melalui ORM (Object-Relational Mapping) Django. Models juga digunakan untuk membuat dan mengubah data dalam basis data.
 
-* Berkas html: Setelah view memproses data yang dibutuhkan, view akan menggunakan template HTML untuk menghasilkan tampilan yang akan dikirimkan kembali ke client.
+* Berkas HTML: Setelah view memproses data yang dibutuhkan, view akan menggunakan template HTML untuk menghasilkan tampilan yang akan dikirimkan kembali ke client.
 
 * Client Response: Setelah view menghasilkan tampilan HTML, respons yang berisi halaman HTML tersebut dikirimkan kembali ke client, yang akan menampilkan konten yang dihasilkan kepada pengguna.
+
 
 3. Jelaskan mengapa kita menggunakan virtual environment? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment?
 
 Jawab:
 
 Kita perlu menggunakan virtual environment saat membuat aplikasi web berbasis Django karena beberapa alasan, yaitu:
-* **Isolasi dependensi aplikasi**<br>
+* **Isolasi Dependensi Aplikasi**<br>
 Setiap aplikasi web Django memiliki dependensinya sendiri. Jika tidak menggunakan virtual environment, maka semua dependensi dari semua aplikasi akan diinstal di sistem operasi. Hal ini dapat menyebabkan konflik dependensi dan membuat aplikasi menjadi tidak stabil.
 
-* **Memudahkan manajemen dependensi**<br>
+* **Memudahkan Manajemen Dependensi**<br>
 Virtual environment memungkinkan kita untuk menginstal dependensi aplikasi secara terpisah dari sistem operasi. Hal ini memudahkan kita untuk memperbarui atau menghapus dependensi tanpa mempengaruhi aplikasi lain.
 
 * **Portabilitas**<br> 
@@ -89,24 +92,25 @@ Aplikasi yang dikembangkan dalam virtual environment dapat dengan mudah dipindah
 
 Kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment. Namun, hal ini tidak disarankan karena dapat menyebabkan beberapa masalah seperti konflik dependensi.
 
+
 4. Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya.
 
 Jawab:
 
-* MVC (Model-View-Controller):<br>
-Model: Representasi data aplikasi.
-View: Bertanggung jawab untuk menampilkan data dari Model dan menanggapi interaksi pengguna.
-Controller: Menerima masukan dari pengguna, memprosesnya, dan memutuskan bagaimana Model dan View harus berinteraksi. 
+* **MVC (Model-View-Controller)**<br>
+**Model**: Representasi data aplikasi.<br>
+**View**: Bertanggung jawab untuk menampilkan data dari Model dan menanggapi interaksi pengguna.<br>
+**Controller**: Menerima masukan dari pengguna, memprosesnya, dan memutuskan bagaimana Model dan View harus berinteraksi. 
 Perbedaan utama: Dalam pola MVC, Model dan View tidak berinteraksi secara langsung. Interaksi antara keduanya dikendalikan oleh Controller.
 
-* MVT (Model-View-Template):<br>
-Model: Representasi data aplikasi.
-View: Menangani tampilan data. Dalam Django, Template dan View bersama-sama bertanggung jawab untuk menghasilkan tampilan.
-Template: Berisi tampilan HTML yang memungkinkan penggunaan sintaks template khusus Django untuk menggabungkan data dari Model ke dalam tampilan.
+* **MVT (Model-View-Template)**<br>
+**Model**: Representasi data aplikasi.<br>
+**View**: Menangani tampilan data. Dalam Django, Template dan View bersama-sama bertanggung jawab untuk menghasilkan tampilan.<br>
+**Template**: Berisi tampilan HTML yang memungkinkan penggunaan sintaks template khusus Django untuk menggabungkan data dari Model ke dalam tampilan.
 Perbedaan utama: MVT adalah adaptasi dari MVC, tetapi dalam MVT, Template memainkan peran yang lebih kuat dalam menghasilkan tampilan, sedangkan View mengelola logika aplikasi.
 
-* MVVM (Model-View-ViewModel):<br>
-Model: Representasi data aplikasi.
-View: Merupakan representasi tampilan yang dikendalikan oleh ViewModel. View dalam MVVM biasanya lebih pasif dan hanya menampilkan data yang disediakan oleh ViewModel.
-ViewModel: Bertanggung jawab untuk mengelola tampilan dan menyediakan data yang diperlukan oleh View.
+* **MVVM (Model-View-ViewModel)**<br>
+**Model**: Representasi data aplikasi.<br>
+**View**: Merupakan representasi tampilan yang dikendalikan oleh ViewModel. View dalam MVVM biasanya lebih pasif dan hanya menampilkan data yang disediakan oleh ViewModel.<br>
+**ViewModel**: Bertanggung jawab untuk mengelola tampilan dan menyediakan data yang diperlukan oleh View.
 Perbedaan utama: MVVM memperkenalkan ViewModel yang berperan penting dalam menghubungkan Model dengan View. ViewModel menyediakan data dan perilaku yang diperlukan oleh View.
