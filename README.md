@@ -1,5 +1,3 @@
-Link App: [Weapentory](https://weapentory.adaptable.app/main/)<br>
-
 Nama: Muhammad Rafi Zia Ulhaq<br>
 NPM: 2206814551<br>
 Kelas: PBP B
