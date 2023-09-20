@@ -5,6 +5,7 @@ from django.urls import reverse
 from main.models import Item
 from django.http import HttpResponse
 from django.core import serializers
+from django.contrib import messages
 
 def show_main(request):
     items = Item.objects.all()
@@ -23,6 +24,7 @@ def create_item(request):
 
     if form.is_valid() and request.method == "POST":
         form.save()
+        messages.success(request, 'Berhasil menambahkan ' + request.POST.get('amount') + ' item ke inventory')
         return HttpResponseRedirect(reverse('main:show_main'))
 
     context = {'form': form}
