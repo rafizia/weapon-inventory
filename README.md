@@ -5,115 +5,197 @@ NPM: 2206814551<br>
 Kelas: PBP B
 <hr>
 
-1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+1. Apa perbedaan antara form `POST` dan form `GET` dalam Django?
 
 **Jawab:**
 
-a. Membuat sebuah proyek Django baru<br>
-* Inisiasi repository baru dengan perintah `git init` serta konfigurasi nama pengguna dan email
-* Inisiasi repository `weapon-inventory`
-* Menghubungkan repository lokal dengan repository Github dengan perintah `git branch -M main` dan `git remote add origin ...`
-* Instalasi Django dan inisiasi proyek Django
-* Mengunggah konfigurasi proyek ke Github
+* **Post** <br>
+*Method* `POST` biasanya digunakan untuk memproses data yang akan dimasukkan ke dalam database. Data dalam form `POST` dikirimkan dalam *request body* HTTP. Hal ini berarti data tidak akan terlihat dalam URL, sehingga lebih aman untuk mengirim data sensitif seperti kata sandi. Kelebihan dari method `POST` adalah data yang dikirim dapat berupa sebuah data yang besar dan kompleks, seperti pengiriman file.
 
-b. Membuat aplikasi dengan nama `main` pada proyek<br>
-* Membuat aplikasi `main` dengan perintah `python manage.py startapp main`
-* Membuat template `main.html`
+* **Get** <br>
+*Method* `GET` biasanya digunakan untuk mengambil data dari server tanpa memodifikasinya. Berbeda dengan `POST`, data yang dikirim melalui method `GET` disisipkan ke dalam URL sebagai parameter `query string`. Hal ini membuat data dapat terlihat dalam URL, sehingga kurang aman untuk mengirim data sensitif. Selain itu, URL juga memiliki batasan panjang tertentu yang dapat membatasi jumlah data yang dapat dikirim.
+<br><br>
 
-c. Melakukan routing pada proyek agar dapat menjalankan aplikasi `main`<br>
-* Menambahkan `main` ke `INSTALLED_APPS` di berkas `settings.py`
+2. Apa perbedaan utama antara XML, JSON, dan HTML dalam konteks pengiriman data?
 
-d. Membuat model pada aplikasi `main` dengan nama `Item`
-* Mengisi berkas `models.py` dalam aplikasi `main` dengan kode:
-```from django.db import models
+**Jawab:**
 
-class Item(models.Model):
-    name = models.CharField(max_length=255)
-    type = models.CharField(max_length=255)
-    atk = models.IntegerField()
-    rarity = models.CharField(max_length=255)
-    description = models.TextField()
-    amount = models.IntegerField()
+* **XML** <br>
+XML adalah format data markup yang menggunakan tag untuk mewakili data. Tag tersebut dapat digunakan untuk mendefinisikan struktur data dan data itu sendiri. XML adalah format yang sangat fleksibel dan dapat digunakan untuk mewakili berbagai jenis data. XML umumnya digunakan untuk pertukaran data kompleks dan memiliki struktur yang lebih rumit, terutama dalam konteks layanan web, konfigurasi, dan penyimpanan data semi-struktural.
 ```
-* Melakukan migrasi model sesuai tutorial 1
+<product>
+    <id>1234</id>
+    <name>T-Shirt</name>
+    <price>20.00</price>
+</product>
+```
 
-e. Membuat sebuah fungsi pada `views.py` untuk dikembalikan ke dalam sebuah template HTML yang menampilkan nama aplikasi serta nama dan kelas
-* Mengisi berkas `views.py` dalam aplikasi `main`dengan kode:
-```def show_main(request):
+* **JSON** <br>
+JSON adalah format data teks yang menggunakan pasangan *key-value* untuk mewakili data sehingga lebih mudah dibaca oleh manusia. JSON adalah format yang didukung oleh banyak bahasa pemrograman. JSON mendukung tipe data dasar seperti string, integer, object, boolean, dan null. JSON digunakan untuk pertukaran data yang lebih sederhana, terutama dalam pengembangan aplikasi web.
+```
+{
+    "id": 1234,
+    "name": "T-Shirt",
+    "price": 20.00
+}
+```
+
+* **HTML** <br>
+HTML adalah format data markup yang digunakan untuk membuat halaman web dan mengatur cara konten ditampilkan kepada pengguna melalui browser web. HTML adalah format yang sangat umum digunakan untuk mengirimkan data dari server ke browser. HTML menggunakan tag untuk mewakili elemen-elemen halaman web, seperti teks, gambar, dan video. HTML tidak digunakan untuk pertukaran data seperti XML dan JSON. Sebaliknya, HTML fokus pada presentasi dan tampilan halaman web.
+```
+<product id="1234">
+    <name>T-Shirt</name>
+    <price>20.00</price>
+</product>
+```
+<br>
+
+
+3. Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?
+
+**Jawab:**
+
+Beberapa alasan mengapa JSON sering digunakan:
+* **Mudah dibaca dan ditulis**: JSON menggunakan sintaks yang sederhana dan mudah dibaca oleh manusia. Strukturnya menggunakan *key-value* yang mirip dengan format data dalam bahasa pemrograman seperti JavaScript. Hal ini membuat JSON lebih mudah untuk dipahami dan digunakan oleh pengembang.
+* **Dukungan bahasa pemrograman yang luas**: JSON didukung oleh banyak bahasa pemrograman, termasuk JavaScript, Python, Java, dan C++. Hal ini membuat JSON lebih mudah untuk digunakan dalam berbagai aplikasi.
+* **Efisien dalam Penggunaan Bandwidth**: JSON cenderung lebih efisien dalam penggunaan bandwidth dibandingkan dengan format lain seperti XML. Karena strukturnya ringkas dan tidak memiliki markup yang berlebihan.
+* **Fleksibilitas**: JSON dapat digunakan untuk mewakili berbagai jenis data, termasuk data sederhana dan data kompleks. Hal ini membuat JSON lebih cocok untuk berbagai aplikasi.
+* **Dukungan Browser Bawaan**: Sebagian besar browser web modern memiliki dukungan bawaan untuk *parsing* dan menghasilkan objek JavaScript dari JSON, membuatnya sangat berguna dalam pengembangan aplikasi web.
+<br><br>
+
+
+4. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+
+**Jawab:**
+
+a. Membuat input `form` untuk menambahkan objek model pada app sebelumnya.
+* Membuat berkas `forms.py` di direktori `main` yang berisi
+```
+from django.forms import ModelForm
+from main.models import Item
+
+class ItemForm(ModelForm):
+    class Meta:
+        model = Item
+        fields = ["name", "type", "atk", "rarity", "description", "amount"]
+```
+* Menambah beberapa import pada berkas `views.py` pada direktori main
+```
+from django.http import HttpResponseRedirect
+from main.forms import ItemForm
+from django.urls import reverse
+```
+* Mengubah fungsi `show_main` pada `views.py` menjadi
+```
+def show_main(request):
+    items = Item.objects.all()
+
     context = {
         'app_name' : 'Weapentory',
         'name': 'Muhammad Rafi Zia Ulhaq',
         'class': 'PBP B',
+        'items': items
     }
 
     return render(request, "main.html", context)
 ```
-* Mengubah template `main.html` agar dapat menampilkan data yang telah diambil dari model
+* Menambah import fungsi `create_item` pada `urls.py`
+```
+from main.views import show_main, create_item
+```
+* Menambah path `create_item` pada `urlpatterns` pada `urls.py`
+```
+path('create-item', create_item, name='create_item'),
+```
+* Membuat berkas create_item.html dengan isi
+```
+{% extends 'base.html' %} 
 
-f. Membuat sebuah routing pada `urls.py` aplikasi `main` untuk memetakan fungsi yang telah dibuat pada `views.py`
-* Konfigurasi `urls.py` di dalam direktori `main` sesuai tutorial 1
-* Menambahkan rute URL di `urls.py` dalam direktori proyek `weapon_inventory` sesuai tutorial 1
+{% block content %}
+<h1>Add New Item</h1>
 
-g. Melakukan deployment ke Adaptable sesuai tutorial 0, tidak lupa mengganti start command menjadi `python manage.py migrate && gunicorn weapon_inventory.wsgi`
-<br><br>
+<form method="POST">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Add Item"/>
+            </td>
+        </tr>
+    </table>
+</form>
+
+{% endblock %}
+```
+* Mengganti isi berkas `main.html` agar dapat menampilkan daftar item yang telah ditambahkan sebelumnya.
+
+b. Tambahkan 5 fungsi `views` untuk melihat objek yang sudah ditambahkan dalam format HTML, XML, JSON, XML by ID, dan JSON by ID.
+* Membuat fungsi `create_item` pada berkas `views.py`.
+```
+def create_item(request):
+    form = ItemForm(request.POST or None)
+
+    if form.is_valid() and request.method == "POST":
+        form.save()
+        return HttpResponseRedirect(reverse('main:show_main'))
+
+    context = {'form': form}
+    return render(request, "create_item.html", context)
+```
+* Membuat fungsi `show_xml` pada berkas `views.py`.
+```
+def show_xml(request):
+    data = Item.objects.all()
+    return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
+```
+* Membuat fungsi `show_json` pada berkas `views.py`.
+```
+def show_json(request):
+    data = Item.objects.all()
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+```
+* Membuat fungsi `show_xml_by_id` pada berkas `views.py`.
+```
+def show_xml_by_id(request, id):
+    data = Item.objects.filter(pk=id)
+    return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
+```
+* Membuat fungsi `show_json_by_id` pada berkas `views.py`.
+```
+def show_json_by_id(request, id):
+    data = Item.objects.filter(pk=id)
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+```
+
+c. Membuat routing URL untuk masing-masing `views` yang telah ditambahkan pada poin 2
+* Mengimpor fungsi-fungsi yang telah dibuat sebelumnya ke berkas `urls.py`
+```
+from main.views import show_main, create_item, show_xml, show_json, show_xml_by_id, show_json_by_id 
+```
+* Menambah masing-masing path url ke berkas `urls.py`
+```
+    path('create-item', create_item, name='create_item'),
+    path('xml/', show_xml, name='show_xml'),
+    path('json/', show_json, name='show_json'), 
+    path('xml/<int:id>/', show_xml_by_id, name='show_xml_by_id'),
+    path('json/<int:id>/', show_json_by_id, name='show_json_by_id'),
+```
+<br>
 
 
-2. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara `urls.py`, `views.py`, `models.py`, dan `berkas html`.
+5. Mengakses kelima URL di poin 2 menggunakan Postman, membuat screenshot dari hasil akses URL pada Postman, dan menambahkannya ke dalam `README.md`.
 
 **Jawab:**
 
-![Bagan request client](https://github.com/rafizia/weapon-inventory/blob/master/image.png?raw=true)
-
-* Client Request: Sebuah request pertama kali diterima oleh Django dari client, seperti web browser. Request ini berisi informasi seperti URL yang dituju ataupun berupa sebuah data.
-
-* `urls.py`: File ini berperan sebagai peta rute untuk mengarahkan request ke view yang sesuai. Saat request masuk, Django akan mencocokkan URL dengan pola yang didefinisikan dalam `urls.py`.
-
-* `views.py`: Setelah URL yang cocok ditemukan, request akan dikirimkan ke fungsi view yang sesuai dalam `views.py`. View berfungsi untuk memproses data, memanggil model, dan mempersiapkan data untuk ditampilkan di halaman web.
-
-* `models.py`: Models adalah representasi struktur data dalam basis data. Ketika view memerlukan akses ke data, view akan berinteraksi dengan model melalui ORM (Object-Relational Mapping) Django. Models juga digunakan untuk membuat dan mengubah data dalam basis data.
-
-* Berkas HTML: Setelah view memproses data yang dibutuhkan, view akan menggunakan template HTML untuk menghasilkan tampilan yang akan dikirimkan kembali ke client.
-
-* Client Response: Setelah view menghasilkan tampilan HTML, respons yang berisi halaman HTML tersebut dikirimkan kembali ke client, yang akan menampilkan konten yang dihasilkan kepada pengguna.
-<br><br>
-
-
-3. Jelaskan mengapa kita menggunakan virtual environment? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment?
-
-**Jawab:**
-
-Kita perlu menggunakan virtual environment saat membuat aplikasi web berbasis Django karena beberapa alasan, yaitu:
-* **Isolasi Dependensi Aplikasi**<br>
-Setiap aplikasi web Django memiliki dependensinya sendiri. Jika tidak menggunakan virtual environment, maka semua dependensi dari semua aplikasi akan diinstal di sistem operasi. Hal ini dapat menyebabkan konflik dependensi dan membuat aplikasi menjadi tidak stabil.
-
-* **Memudahkan Manajemen Dependensi**<br>
-Virtual environment memungkinkan kita untuk menginstal dependensi aplikasi secara terpisah dari sistem operasi. Hal ini memudahkan kita untuk memperbarui atau menghapus dependensi tanpa mempengaruhi aplikasi lain.
-
-* **Portabilitas**<br> 
-Aplikasi yang dikembangkan dalam virtual environment dapat dengan mudah dipindahkan ke sistem operasi lain.
-
-Kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment. Namun, hal ini tidak disarankan karena dapat menyebabkan beberapa masalah seperti konflik dependensi.
-<br><br>
-
-
-4. Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya.
-
-**Jawab:**
-
-* **MVC (Model-View-Controller)**<br>
-    - **Model**: Representasi data aplikasi.<br>
-    - **View**: Bertanggung jawab untuk menampilkan data dari Model dan menanggapi interaksi pengguna.<br>
-    - **Controller**: Menerima masukan dari pengguna, memprosesnya, dan memutuskan bagaimana Model dan View harus berinteraksi.<br>
-    - **Perbedaan utama**: Dalam pola MVC, Model dan View tidak berinteraksi secara langsung. Interaksi antara keduanya dikendalikan oleh Controller.
-
-* **MVT (Model-View-Template)**<br>
-    - **Model**: Representasi data aplikasi.<br>
-    - **View**: Menangani tampilan data. Dalam Django, Template dan View bersama-sama bertanggung jawab untuk menghasilkan tampilan.<br>
-    - **Template**: Berisi tampilan HTML yang memungkinkan penggunaan sintaks template khusus Django untuk menggabungkan data dari Model ke dalam tampilan.<br>
-    - **Perbedaan utama**: MVT adalah adaptasi dari MVC, tetapi dalam MVT, Template memainkan peran yang lebih kuat dalam menghasilkan tampilan, sedangkan View mengelola logika aplikasi.
-
-* **MVVM (Model-View-ViewModel)**<br>
-    - **Model**: Representasi data aplikasi.<br>
-    - **View**: Merupakan representasi tampilan yang dikendalikan oleh ViewModel. View dalam MVVM biasanya lebih pasif dan hanya menampilkan data yang disediakan oleh ViewModel.<br>
-    - **ViewModel**: Bertanggung jawab untuk mengelola tampilan dan menyediakan data yang diperlukan oleh View.<br>
-    - **Perbedaan utama**: MVVM memperkenalkan ViewModel yang berperan penting dalam menghubungkan Model dengan View. ViewModel menyediakan data dan perilaku yang diperlukan oleh View.
+* **HTML**
+![HTML](https://github.com/rafizia/weapon-inventory/blob/master/image/Postman_HTML.png?raw=true)
+* **XML**
+![XML](https://github.com/rafizia/weapon-inventory/blob/master/image/Postman_XML.png?raw=true)
+* **JSON**
+![JSON](https://github.com/rafizia/weapon-inventory/blob/master/image/Postman_JSON.png?raw=true)
+* **XML by id**
+![XML by id](https://github.com/rafizia/weapon-inventory/blob/master/image/Postman_XML_by_id.png?raw=true)
+* **JSON by id**
+![JSON by id](https://github.com/rafizia/weapon-inventory/blob/master/image/Postman_JSON_by_id.png?raw=true)

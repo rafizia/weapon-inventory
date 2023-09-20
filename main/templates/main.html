@@ -1,63 +1,59 @@
-<style>
-    th, td {
-       padding: 15px; border:1px solid black
-    }
-    table {
-        border:1px solid black;
-    }
-</style>
+{% extends 'base.html' %}
 
-<h1>{{ app_name }}</h1>
+{% block content %}
+    <style>
+        th {
+            padding: 15px; border:1px solid; background-color: #0096FF; font-size: large;
+        }
+        td {
+            padding: 15px; border:1px solid black;
+        }
+        table {
+            border:1px solid black; border-collapse: collapse;
+        }
+        tr:hover {background-color: #D6EEEE;}
+    </style>
 
-<h5>Name: </h5>
-<p>{{ name }}<p>
-<h5>Class: </h5>
-<p>{{ class }}<p>
+    <h1>{{ app_name }}</h1>
 
-<table style="width:100%">
-    <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>ATK</th>
-        <th>Rarity</th>
-        <th>Description</th>
-        <th>Amount</th>
-    </tr>
-    <tr>
-        <td>Sword of Descensions</td>
-        <td style="text-align: center;">Sword</td>
-        <td style="text-align: center;">1099</td>
-        <td style="color:purple; text-align: center;">Purple</td>
-        <td>A mysterious sword that shimmers with magical beauty. 
-            This sword has the power to control the elements of nature, 
-            with its blade capable of manifesting fire, ice, wind, and lightning. 
-            Every attack with this sword produces a deadly attack of elemental energy. 
-            Additionally, the owner can summon elemental powers according to need and 
-            combine them in epic attacks</td>
-        <td style="text-align: center;">1</td>
-    </tr>
-    <tr>
-        <td>Blade of Grass</td>
-        <td style="text-align: center;">Sword</td>
-        <td style="text-align: center;">745</td>
-        <td style="color:blue; text-align: center;">Blue</td>
-        <td>A unique magical weapon made from rare plant fibers. 
-            It can control plants and manipulate the natural surroundings, 
-            either to protect its owner or face enemies. When used with good intentions, 
-            this weapon emits a healing natural light, 
-            but can turn into a deadly tool if used for evil purposes</td>
-        <td style="text-align: center;">3</td>
-    </tr>
-    <tr>
-        <td>Dimensity Destroyer</td>
-        <td style="text-align: center;">Sword</td>
-        <td style="text-align: center;">2099</td>
-        <td style="color:gold; text-align: center;">Gold</td>
-        <td>A legendary weapon that reflects incredible cosmic power. 
-            It has the ability to change the structure of reality and control dimensions, 
-            allowing its owner to manipulate time and space. 
-            When pulled out, this weapon creates dramatic changes in its surroundings, 
-            creating an effect that destroys everything in its path</td>
-        <td style="text-align: center;">1</td>
-    </tr>
-</table>
+    <h5>Name: </h5>
+    <p>{{ name }}<p>
+
+    <h5>Class: </h5>
+    <p>{{ class }}<p>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>ATK</th>
+            <th>Rarity</th>
+            <th>Description</th>
+            <th>Amount</th>
+        </tr>
+    
+        {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
+    
+        {% for item in items %}
+            <tr>
+                <td>{{item.name}}</td>
+                <td style="text-align: center;">{{item.type}}</td>
+                <td style="text-align: center;">{{item.atk}}</td>
+                <td style="text-align: center;">{{item.rarity}}</td>
+                <td>{{item.description}}</td>
+                <td style="text-align: center;">{{item.amount}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    
+    <br />
+    
+    <a href="{% url 'main:create_item' %}">
+        <button style="background-color: #0096FF; border: none; color: white;
+            padding: 7px 15px; text-align: center; text-decoration: none; display: inline-block;
+            font-size: 16px; cursor: pointer;" >
+            Add New Item
+        </button>
+    </a>
+{% endblock content %}
+
