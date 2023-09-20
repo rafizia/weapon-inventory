@@ -130,17 +130,19 @@ path('create-item', create_item, name='create_item'),
 * Mengganti isi berkas `main.html` agar dapat menampilkan daftar item yang telah ditambahkan sebelumnya.
 
 b. Tambahkan 5 fungsi `views` untuk melihat objek yang sudah ditambahkan dalam format HTML, XML, JSON, XML by ID, dan JSON by ID.
-* Membuat fungsi `create_item` pada berkas `views.py`.
+* Membuat fungsi `show_main` pada berkas `views.py`.
 ```
-def create_item(request):
-    form = ItemForm(request.POST or None)
+def show_main(request):
+    items = Item.objects.all()
 
-    if form.is_valid() and request.method == "POST":
-        form.save()
-        return HttpResponseRedirect(reverse('main:show_main'))
+    context = {
+        'app_name' : 'Weapentory',
+        'name': 'Muhammad Rafi Zia Ulhaq',
+        'class': 'PBP B',
+        'items': items
+    }
 
-    context = {'form': form}
-    return render(request, "create_item.html", context)
+    return render(request, "main.html", context)
 ```
 * Membuat fungsi `show_xml` pada berkas `views.py`.
 ```
@@ -174,6 +176,7 @@ from main.views import show_main, create_item, show_xml, show_json, show_xml_by_
 ```
 * Menambah masing-masing path url ke berkas `urls.py`
 ```
+    path('', show_main, name='show_main'),
     path('create-item', create_item, name='create_item'),
     path('xml/', show_xml, name='show_xml'),
     path('json/', show_json, name='show_json'), 
