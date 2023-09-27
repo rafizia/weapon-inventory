@@ -5,62 +5,56 @@ NPM: 2206814551<br>
 Kelas: PBP B
 <hr>
 
-1. Apa perbedaan antara form `POST` dan form `GET` dalam Django?
+1. Apa itu Django `UserCreationForm`, dan jelaskan apa kelebihan dan kekurangannya?
 
 **Jawab:**
 
-* **Post** <br>
-*Method* `POST` biasanya digunakan untuk memproses data yang akan dimasukkan ke dalam database. Data dalam form `POST` dikirimkan dalam *request body* HTTP. Hal ini berarti data tidak akan terlihat dalam URL, sehingga lebih aman untuk mengirim data sensitif seperti kata sandi. Kelebihan dari method `POST` adalah data yang dikirim dapat berupa sebuah data yang besar dan kompleks, seperti pengiriman file.
+Django `UserCreationForm` adalah sebuah form yang digunakan untuk membuat akun pengguna (user account) dalam sebuah aplikasi web. Form ini mengandung berbagai data yang umumnya diperlukan untuk membuat akun pengguna, seperti nama pengguna (username), kata sandi (password), dan konfirmasi kata sandi.
 
-* **Get** <br>
-*Method* `GET` biasanya digunakan untuk mengambil data dari server tanpa memodifikasinya. Berbeda dengan `POST`, data yang dikirim melalui method `GET` disisipkan ke dalam URL sebagai parameter `query string`. Hal ini membuat data dapat terlihat dalam URL, sehingga kurang aman untuk mengirim data sensitif. Selain itu, URL juga memiliki batasan panjang tertentu yang dapat membatasi jumlah data yang dapat dikirim.
+* **Kelebihan**
+    * **Mudah digunakan**: Form ini sudah dikonfigurasi secara default, sehingga pengguna dapat langsung menggunakannya tanpa perlu melakukan konfigurasi tambahan.
+    * **Aman**: Django memiliki sistem keamanan yang kuat yang mencakup proteksi terhadap serangan seperti SQL injection.
+    * **Fleksibel**: Form ini dapat dikonfigurasi ulang sesuai dengan kebutuhan pengguna.
+
+* **Kekurangan**
+    * **Tidak dapat disesuaikan secara penuh**: Form ini sudah dikonfigurasi secara default, sehingga pengguna tidak dapat menyesuaikannya secara penuh.
+    * **Tampilan standar**: UserCreationForm memiliki tampilan standar yang mungkin perlu disesuaikan agar sesuai dengan desain tampilan yang diinginkan.
 <br><br>
 
-2. Apa perbedaan utama antara XML, JSON, dan HTML dalam konteks pengiriman data?
+
+2. Apa perbedaan antara autentikasi dan otorisasi dalam konteks Django, dan mengapa keduanya penting?
 
 **Jawab:**
 
-* **XML** <br>
-XML adalah format data markup yang menggunakan tag untuk mewakili data. Tag tersebut dapat digunakan untuk mendefinisikan struktur data dan data itu sendiri. XML adalah format yang sangat fleksibel dan dapat digunakan untuk mewakili berbagai jenis data. XML umumnya digunakan untuk pertukaran data kompleks dan memiliki struktur yang lebih rumit, terutama dalam konteks layanan web, konfigurasi, dan penyimpanan data semi-struktural.
-```
-<product>
-    <id>1234</id>
-    <name>T-Shirt</name>
-    <price>20.00</price>
-</product>
-```
+* **Autentikasi**
+Autentikasi adalah proses verifikasi identitas pengguna. Tujuan autentikasi adalah untuk memastikan bahwa pengguna memiliki identitas yang valid dan sah sebelum memberikan akses ke bagian tertentu dari aplikasi. Contoh: pengguna memasukkan nama pengguna dan kata sandi untuk masuk ke aplikasi.
 
-* **JSON** <br>
-JSON adalah format data teks yang menggunakan pasangan *key-value* untuk mewakili data sehingga lebih mudah dibaca oleh manusia. JSON adalah format yang didukung oleh banyak bahasa pemrograman. JSON mendukung tipe data dasar seperti string, integer, object, boolean, dan null. JSON digunakan untuk pertukaran data yang lebih sederhana, terutama dalam pengembangan aplikasi web.
-```
-{
-    "id": 1234,
-    "name": "T-Shirt",
-    "price": 20.00
-}
-```
-
-* **HTML** <br>
-HTML adalah format data markup yang digunakan untuk membuat halaman web dan mengatur cara konten ditampilkan kepada pengguna melalui browser web. HTML adalah format yang sangat umum digunakan untuk mengirimkan data dari server ke browser. HTML menggunakan tag untuk mewakili elemen-elemen halaman web, seperti teks, gambar, dan video. HTML tidak digunakan untuk pertukaran data seperti XML dan JSON. Sebaliknya, HTML fokus pada presentasi dan tampilan halaman web.
-```
-<product id="1234">
-    <name>T-Shirt</name>
-    <price>20.00</price>
-</product>
-```
-<br>
+* **Otorisasi**
+Otorisasi adalah proses yang menentukan hak akses apa yang dimiliki oleh pengguna yang telah terotentikasi. Otorisasi memastikan bahwa meskipun seorang pengguna telah terotentikasi, ia hanya memiliki akses ke bagian aplikasi yang sesuai dengan peran atau izinnya. Contoh: hanya administrator yang dapat mengedit atau menghapus data, sementara pengguna biasa hanya dapat melihatnya.
+<br><br>
 
 
-3. Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?
+3. Apa itu cookies dalam konteks aplikasi web, dan bagaimana Django menggunakan cookies untuk mengelola data sesi pengguna?
 
 **Jawab:**
 
-Beberapa alasan mengapa JSON sering digunakan:
-* **Mudah dibaca dan ditulis**: JSON menggunakan sintaks yang sederhana dan mudah dibaca oleh manusia. Strukturnya menggunakan *key-value* yang mirip dengan format data dalam bahasa pemrograman seperti JavaScript. Hal ini membuat JSON lebih mudah untuk dipahami dan digunakan oleh pengembang.
-* **Dukungan bahasa pemrograman yang luas**: JSON didukung oleh banyak bahasa pemrograman, termasuk JavaScript, Python, Java, dan C++. Hal ini membuat JSON lebih mudah untuk digunakan dalam berbagai aplikasi.
-* **Efisien dalam Penggunaan Bandwidth**: JSON cenderung lebih efisien dalam penggunaan bandwidth dibandingkan dengan format lain seperti XML. Karena strukturnya ringkas dan tidak memiliki markup yang berlebihan.
-* **Fleksibilitas**: JSON dapat digunakan untuk mewakili berbagai jenis data, termasuk data sederhana dan data kompleks. Hal ini membuat JSON lebih cocok untuk berbagai aplikasi.
-* **Dukungan Browser Bawaan**: Sebagian besar browser web modern memiliki dukungan bawaan untuk *parsing* dan menghasilkan objek JavaScript dari JSON, membuatnya sangat berguna dalam pengembangan aplikasi web.
+Cookies adalah mekanisme yang digunakan dalam aplikasi web untuk menyimpan data pada sisi klien (pada perangkat pengguna) untuk berbagai tujuan seperti pengelolaan informasi sesi pengguna, pelacakan pengguna, preferensi pengguna, dan iklan. Django menggunakan cookies untuk mengelola data sesi pengguna dengan cara berikut:
+* Saat pengguna masuk ke aplikasi, Django membuat objek `Session` baru. Objek ini menyimpan informasi tentang pengguna, seperti nama pengguna, terakhir login, dan pengaturan lainnya.
+* Django menyimpan objek `Session` dalam cookie yang dikirim ke browser pengguna.
+* Ketika pengguna mengunjungi halaman lain di aplikasi, browser akan mengirimkan cookie tersebut ke server.
+* Server menggunakan data sesi untuk menentukan apakah pengguna telah masuk dan untuk menyimpan informasi tentang pengguna.
+<br><br>
+
+
+4. Apakah penggunaan cookies aman secara default dalam pengembangan web, atau apakah ada risiko potensial yang harus diwaspadai?
+
+**Jawab**
+
+Penggunaan cookies secara default dalam pengembangan web tidak sepenuhnya aman. Terdapat beberapa risiko yang harus diwaspadai, antara lain:
+* **Kebocoran data**: Cookies dapat diretas untuk dicuri datanya. Data yang dicuri dapat berupa informasi pribadi, seperti nama pengguna, alamat email, dan kata sandi.
+* **Pelacakan**: Cookies dapat digunakan untuk melacak aktivitas pengguna di web. Data pelacakan ini dapat digunakan untuk menargetkan iklan atau untuk mengumpulkan informasi tentang perilaku pengguna.
+* **Penggunaan cookie oleh pihak ketiga**: Cookies dapat digunakan oleh pihak ketiga, seperti penyedia layanan iklan. Pihak ketiga dapat menggunakan cookie untuk melacak aktivitas pengguna di berbagai situs web.
+* **Pembajakan session**: Jika cookie sesi pengguna tidak dienkripsi atau diatur dengan baik, penyerang dapat mencuri cookie tersebut dan mengakses sesi pengguna yang sudah ada.
 <br><br>
 
 
@@ -68,137 +62,157 @@ Beberapa alasan mengapa JSON sering digunakan:
 
 **Jawab:**
 
-a. Membuat input `form` untuk menambahkan objek model pada app sebelumnya.
-* Membuat berkas `forms.py` di direktori `main` yang berisi
+a. Mengimplementasikan fungsi registrasi, login, dan logout untuk memungkinkan pengguna untuk mengakses aplikasi sebelumnya dengan lancar.
+* Buka berkas `views.py` dan impor fungsi-fungsi yang diperlukan 
 ```
-from django.forms import ModelForm
-from main.models import Item
+from django.shortcuts import redirect
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages 
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+```
+* Membuat fungsi dengan nama `register`, `login_user`, `logout_user` yang masing-masing menerima parameter request
+```
+def register(request):
+    form = UserCreationForm()
 
-class ItemForm(ModelForm):
-    class Meta:
-        model = Item
-        fields = ["name", "type", "atk", "rarity", "description", "amount"]
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Your account has been successfully created!')
+            return redirect('main:login')
+    context = {'form':form}
+    return render(request, 'register.html', context)
+
+def login_user(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            response = HttpResponseRedirect(reverse("main:show_main")) 
+            response.set_cookie('last_login', str(datetime.datetime.now()))
+            return response
+        else:
+            messages.info(request, 'Sorry, incorrect username or password. Please try again.')
+    context = {}
+    return render(request, 'login.html', context)
+
+def logout_user(request):
+    logout(request)
+    response = HttpResponseRedirect(reverse('main:login'))
+    response.delete_cookie('last_login')
+    return response
 ```
-* Menambah beberapa import pada berkas `views.py` pada direktori main
+* Menambahkan kode berikut di atas fungsi `show_main`
 ```
+@login_required(login_url='/login')
+```
+* Membuat berkas `register.html`, `login.html` di folder `templates`
+* Menambahkan button logout di berkas `main.html`
+* Impor fungsi-fungsi yang telah dibuat ke berkas `urls.py` lalu menambahkan path url yang sesuai ke `urlpatterns`
+```
+    path('register/', register, name='register'),
+    path('login/', login_user, name='login'),
+    path('logout/', logout_user, name='logout'),
+```
+
+b. Membuat dua akun pengguna dengan masing-masing tiga dummy data menggunakan model yang telah dibuat pada aplikasi sebelumnya untuk setiap akun di lokal.
+* Register dua akun pengguna baru kemudian menambahkan masing-masing akun dengan tiga dummy data dengan `Add New Item`
+
+c. Menghubungkan model `Item` dengan `User`.
+* Menambahkan kode berikut untuk mengimpor model di berkas `models.py`
+```
+from django.contrib.auth.models import User
+```
+* Menambahkan kode berikut ke `class Item`
+```
+user = models.ForeignKey(User, on_delete=models.CASCADE)
+```
+* Mengganti fungsi `create_item` di berkas `views.py` menjadi
+```
+form = ItemForm(request.POST or None)
+
+    if form.is_valid() and request.method == "POST":
+        item = form.save(commit=False)
+        item.user = request.user
+        item.save()
+        return HttpResponseRedirect(reverse('main:show_main'))
+    ...
+```
+* Mengubah fungsi `show_main` menjadi
+```
+def show_main(request):
+    items = Item.objects.filter(user=request.user)
+
+    context = {
+        'app_name' : 'Weapentory',
+        'name': request.user.username,
+        'class': 'PBP B',
+        'items': items,
+        'last_login': request.COOKIES['last_login'],
+    }
+
+    return render(request, "main.html", context)
+```
+* Melakukan migrasi model
+
+d. Menampilkan detail informasi pengguna yang sedang logged in seperti username dan menerapkan `cookies` seperti `last login` pada halaman utama aplikasi.
+* Buka berkas `views.py` dan impor fungsi-fungsi berikut
+```
+import datetime
 from django.http import HttpResponseRedirect
-from main.forms import ItemForm
 from django.urls import reverse
 ```
-* Mengubah fungsi `show_main` pada `views.py` menjadi
+* Pada fungsi `login_user` ubah isi kode `if user is not None` menjadi
 ```
-def show_main(request):
-    items = Item.objects.all()
-
-    context = {
-        'app_name' : 'Weapentory',
-        'name': 'Muhammad Rafi Zia Ulhaq',
-        'class': 'PBP B',
-        'items': items
-    }
-
-    return render(request, "main.html", context)
+if user is not None:
+    login(request, user)
+    response = HttpResponseRedirect(reverse("main:show_main")) 
+    response.set_cookie('last_login', str(datetime.datetime.now()))
+    return response
 ```
-* Menambah import fungsi `create_item` pada `urls.py`
+* Menambahkan kode berikut pada variabel `context`
 ```
-from main.views import show_main, create_item
+'last_login': request.COOKIES['last_login'],
 ```
-* Menambah path `create_item` pada `urlpatterns` pada `urls.py`
+* Buka berkas `main.html` dan menambahkan kode berikut
 ```
-path('create-item', create_item, name='create_item'),
-```
-* Membuat berkas create_item.html dengan isi
-```
-{% extends 'base.html' %} 
-
-{% block content %}
-<h1>Add New Item</h1>
-
-<form method="POST">
-    {% csrf_token %}
-    <table>
-        {{ form.as_table }}
-        <tr>
-            <td></td>
-            <td>
-                <input type="submit" value="Add Item"/>
-            </td>
-        </tr>
-    </table>
-</form>
-
-{% endblock %}
-```
-* Mengganti isi berkas `main.html` agar dapat menampilkan daftar item yang telah ditambahkan sebelumnya.
-
-b. Tambahkan 5 fungsi `views` untuk melihat objek yang sudah ditambahkan dalam format HTML, XML, JSON, XML by ID, dan JSON by ID.
-* Membuat fungsi `show_main` pada berkas `views.py`.
-```
-def show_main(request):
-    items = Item.objects.all()
-
-    context = {
-        'app_name' : 'Weapentory',
-        'name': 'Muhammad Rafi Zia Ulhaq',
-        'class': 'PBP B',
-        'items': items
-    }
-
-    return render(request, "main.html", context)
-```
-* Membuat fungsi `show_xml` pada berkas `views.py`.
-```
-def show_xml(request):
-    data = Item.objects.all()
-    return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
-```
-* Membuat fungsi `show_json` pada berkas `views.py`.
-```
-def show_json(request):
-    data = Item.objects.all()
-    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
-```
-* Membuat fungsi `show_xml_by_id` pada berkas `views.py`.
-```
-def show_xml_by_id(request, id):
-    data = Item.objects.filter(pk=id)
-    return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
-```
-* Membuat fungsi `show_json_by_id` pada berkas `views.py`.
-```
-def show_json_by_id(request, id):
-    data = Item.objects.filter(pk=id)
-    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+<h5>Sesi terakhir login: {{ last_login }}</h5>
 ```
 
-c. Membuat routing URL untuk masing-masing `views` yang telah ditambahkan pada poin 2
-* Mengimpor fungsi-fungsi yang telah dibuat sebelumnya ke berkas `urls.py`
+e. Bonus
+* Membuat fungsi `delete_item`, `increment_amount`, dan `decrement_amount` yang menerima parameter `request` dan `item_id` di berkas `views.py`
 ```
-from main.views import show_main, create_item, show_xml, show_json, show_xml_by_id, show_json_by_id 
+def delete_item(request, item_id):
+    item = Item.objects.get(pk=item_id)
+    item.delete()
+    return redirect('main:show_main')
+
+def increment_amount(request, item_id):
+    item = Item.objects.get(pk=item_id)
+    item.amount += 1
+    item.save()
+    return redirect('main:show_main')
+
+def decrement_amount(request, item_id):
+    item = Item.objects.get(pk=item_id)
+    if item.amount > 1:
+        item.amount -= 1
+        item.save()
+    else:
+        delete_item(request, item_id)
+    return redirect('main:show_main')
 ```
-* Menambah masing-masing path url ke berkas `urls.py`
+* Mengimpor fungsi-fungsi tersebut ke `urls.py` dan menambahkan path yang sesuai
 ```
-    path('', show_main, name='show_main'),
-    path('create-item', create_item, name='create_item'),
-    path('xml/', show_xml, name='show_xml'),
-    path('json/', show_json, name='show_json'), 
-    path('xml/<int:id>/', show_xml_by_id, name='show_xml_by_id'),
-    path('json/<int:id>/', show_json_by_id, name='show_json_by_id'),
+    path('delete/<item_id>/', delete_item, name='delete_item'),
+    path('increment_amount/<item_id>/', increment_amount, name='increment_amount'),
+    path('decrement_amount/<item_id>/', decrement_amount, name='decrement_amount'),
 ```
-<br>
+* Mengedit berkas `main.html` agar dapat menampilkan tombol yang sesuai
 
 
-5. Mengakses kelima URL di poin 2 menggunakan Postman, membuat screenshot dari hasil akses URL pada Postman, dan menambahkannya ke dalam `README.md`.
 
-**Jawab:**
-
-* **HTML**
-![HTML](https://github.com/rafizia/weapon-inventory/blob/master/image/Postman_HTML.png?raw=true)
-* **XML**
-![XML](https://github.com/rafizia/weapon-inventory/blob/master/image/Postman_XML.png?raw=true)
-* **JSON**
-![JSON](https://github.com/rafizia/weapon-inventory/blob/master/image/Postman_JSON.png?raw=true)
-* **XML by id**
-![XML by id](https://github.com/rafizia/weapon-inventory/blob/master/image/Postman_XML_by_id.png?raw=true)
-* **JSON by id**
-![JSON by id](https://github.com/rafizia/weapon-inventory/blob/master/image/Postman_JSON_by_id.png?raw=true)
