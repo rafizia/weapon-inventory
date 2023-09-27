@@ -1,6 +1,15 @@
 {% extends 'base.html' %} 
 
 {% block content %}
+<style>
+    body {
+        font-family: sans-serif;
+    }
+    th,td {
+        padding: 6px;
+    }
+</style>
+
 <h1>Add New Item</h1>
 
 <form method="POST">
@@ -10,7 +19,9 @@
         <tr>
             <td></td>
             <td>
-                <input type="submit" value="Add Item"/>
+                <input style="background-color: #4c8bf5; border: none; color: white;
+                padding: 5px 15px; text-align: center; text-decoration: none; display: inline-block;
+                font-size: 15px; cursor: pointer; border-radius: 6px;" type="submit" value="Add Item"/>
             </td>
         </tr>
     </table>

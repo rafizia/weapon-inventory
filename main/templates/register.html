@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+    <title>Register</title>
+{% endblock meta %}
+
+{% block content %}
+
+<style>
+    body {
+        font-family: sans-serif;
+    }
+    th,td {
+        padding: 6px;
+    }
+</style>
+
+<div class = "login">
+    
+    <h1>Register</h1>  
+
+        <form method="POST" >  
+            {% csrf_token %}  
+            <table>  
+                {{ form.as_table }}  
+                <tr>  
+                    <td></td>
+                    <td><input style="background-color: #4c8bf5; border: none; color: white;
+                        padding: 5px 15px; text-align: center; text-decoration: none; display: inline-block;
+                        font-size: 15px; cursor: pointer; border-radius: 6px;" type="submit" name="submit" value="Daftar"/></td>  
+                </tr>  
+            </table>  
+        </form>
+
+    {% if messages %}  
+        <ul>   
+            {% for message in messages %}  
+                <li>{{ message }}</li>  
+                {% endfor %}  
+        </ul>   
+    {% endif %}
+
+</div>  
+
+{% endblock content %}
