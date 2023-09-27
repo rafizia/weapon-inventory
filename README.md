@@ -26,10 +26,10 @@ Django `UserCreationForm` adalah sebuah form yang digunakan untuk membuat akun p
 
 **Jawab:**
 
-* **Autentikasi**
+* **Autentikasi**<br>
 Autentikasi adalah proses verifikasi identitas pengguna. Tujuan autentikasi adalah untuk memastikan bahwa pengguna memiliki identitas yang valid dan sah sebelum memberikan akses ke bagian tertentu dari aplikasi. Contoh: pengguna memasukkan nama pengguna dan kata sandi untuk masuk ke aplikasi.
 
-* **Otorisasi**
+* **Otorisasi**<br>
 Otorisasi adalah proses yang menentukan hak akses apa yang dimiliki oleh pengguna yang telah terotentikasi. Otorisasi memastikan bahwa meskipun seorang pengguna telah terotentikasi, ia hanya memiliki akses ke bagian aplikasi yang sesuai dengan peran atau izinnya. Contoh: hanya administrator yang dapat mengedit atau menghapus data, sementara pengguna biasa hanya dapat melihatnya.
 <br><br>
 
@@ -63,7 +63,7 @@ Penggunaan cookies secara default dalam pengembangan web tidak sepenuhnya aman. 
 **Jawab:**
 
 a. Mengimplementasikan fungsi registrasi, login, dan logout untuk memungkinkan pengguna untuk mengakses aplikasi sebelumnya dengan lancar.
-* Buka berkas `views.py` dan impor fungsi-fungsi yang diperlukan 
+* Membuka berkas `views.py` dan mengimpor fungsi-fungsi yang diperlukan 
 ```
 from django.shortcuts import redirect
 from django.contrib.auth.forms import UserCreationForm
@@ -112,7 +112,7 @@ def logout_user(request):
 ```
 * Membuat berkas `register.html`, `login.html` di folder `templates`
 * Menambahkan button logout di berkas `main.html`
-* Impor fungsi-fungsi yang telah dibuat ke berkas `urls.py` lalu menambahkan path url yang sesuai ke `urlpatterns`
+* Mengimpor fungsi-fungsi yang telah dibuat ke berkas `urls.py` lalu menambahkan path url yang sesuai ke `urlpatterns`
 ```
     path('register/', register, name='register'),
     path('login/', login_user, name='login'),
@@ -160,13 +160,13 @@ def show_main(request):
 * Melakukan migrasi model
 
 d. Menampilkan detail informasi pengguna yang sedang logged in seperti username dan menerapkan `cookies` seperti `last login` pada halaman utama aplikasi.
-* Buka berkas `views.py` dan impor fungsi-fungsi berikut
+* Membuka berkas `views.py` dan mengimpor fungsi-fungsi berikut
 ```
 import datetime
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 ```
-* Pada fungsi `login_user` ubah isi kode `if user is not None` menjadi
+* Mengubah isi kode `if user is not None` pada fungsi `login_user` menjadi
 ```
 if user is not None:
     login(request, user)
@@ -178,7 +178,7 @@ if user is not None:
 ```
 'last_login': request.COOKIES['last_login'],
 ```
-* Buka berkas `main.html` dan menambahkan kode berikut
+* Membuka berkas `main.html` dan menambahkan kode berikut
 ```
 <h5>Sesi terakhir login: {{ last_login }}</h5>
 ```
