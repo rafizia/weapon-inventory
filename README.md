@@ -58,7 +58,7 @@ Penggunaan cookies secara default dalam pengembangan web tidak sepenuhnya aman. 
 <br><br>
 
 
-4. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 
 **Jawab:**
 
@@ -71,7 +71,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 ```
-* Membuat fungsi dengan nama `register`, `login_user`, `logout_user` yang masing-masing menerima parameter request
+* Membuat fungsi dengan nama `register`, `login_user`, `logout_user` yang masing-masing menerima parameter `request`
 ```
 def register(request):
     form = UserCreationForm()
@@ -152,7 +152,6 @@ def show_main(request):
         'name': request.user.username,
         'class': 'PBP B',
         'items': items,
-        'last_login': request.COOKIES['last_login'],
     }
 
     return render(request, "main.html", context)
