@@ -8,7 +8,7 @@ Kelas: PBP B
 **Jawab:**
 
 * **Element Selector**
-Type selector memungkinkan kita untuk memilih semua elemen dengan jenis atau nama tertentu, seperti <p>, <h1>, <div>, dll. Type selector digunakan ketika kita ingin menerapkan gaya yang sama pada semua elemen dengan jenis tertentu. Misalnya, jika kita ingin mengubah gaya teks pada semua <h2> menjadi berwarna biru, kita dapat menggunakan h2 sebagai type selector.
+Type selector memungkinkan kita untuk memilih semua elemen dengan jenis atau nama tertentu, seperti `<p>`, `<h1>`, `<div>`, dll. Type selector digunakan ketika kita ingin menerapkan gaya yang sama pada semua elemen dengan jenis tertentu. Misalnya, jika kita ingin mengubah gaya teks pada semua `<h2>` menjadi berwarna biru, kita dapat menggunakan `h2` sebagai type selector.
 
 * **ID Selector**
 ID selector memungkinkan kita untuk memilih elemen berdasarkan ID unik yang diberikan. Setiap ID harus unik dalam satu halaman. ID selector digunakan ketika kita ingin menerapkan gaya atau interaksi khusus pada satu elemen tertentu yang memiliki ID unik. Ini sering digunakan untuk tujuan skriping atau navigasi.
@@ -34,6 +34,8 @@ Class selector memungkinkan kita untuk memilih elemen berdasarkan nama kelas yan
 * `<img>`: Digunakan untuk menampilkan gambar di halaman web.
 * `<ul>`, `<ol>`, dan `<li>`: Digunakan untuk membuat daftar tak terurut (unordered list), daftar terurut (ordered list), dan item dalam daftar, masing-masing.
 * `<table>`, `<tr>`, `<th>`, dan `<td>`: Digunakan untuk membuat tabel dan baris dalam tabel bersama dengan sel dan judul.
+<br><br>
+
 
 3. Jelaskan perbedaan antara margin dan padding.
 
@@ -105,8 +107,7 @@ from main.views import edit_product
 path('edit-product/<int:id>', edit_product, name='edit_product'),
 ```
 * Mengedit tampilan main.html, login.html, register.html, create_item.html, dan edit_product.html menggunakan CSS dan Bootstrap seperti mengubah warna tabel, warna teks, dan lain sebagainya.
-* Bonus
-Menambah kode berikut di elemen `<tr>` pada `main.html` serta menambahkan style CSS baru untuk mengubah warna tulisan pada baris terakhir
+* Bonus: menambah kode berikut di elemen `<tr>` pada `main.html` serta menambahkan style CSS baru untuk mengubah warna tulisan pada baris terakhir
 ```
 <tr {% if forloop.last %}class="last-row"{% endif %}>
 ```
