@@ -97,7 +97,7 @@ def edit_product(request, id):
     context = {'form': form}
     return render(request, "edit_product.html", context)
 ```
-* Membuat berkas `edit_product.html` kemudian menambah path yang sesuai ke urls.py
+* Membuat berkas `edit_product.html` kemudian menambah path yang sesuai ke `urls.py`
 ```
 from main.views import edit_product
 ```
@@ -105,7 +105,7 @@ from main.views import edit_product
 path('edit-product/<int:id>', edit_product, name='edit_product'),
 ```
 * Mengedit tampilan pada berkas `main.html`, `login.html`, `register.html`, `create_item.html`, dan `edit_product.html` menggunakan CSS dan Bootstrap seperti mengubah warna tabel, warna teks, dan lain sebagainya.
-* Bonus: menambah kode berikut di elemen `<tr>` pada berkas `main.html` serta menambahkan style CSS baru untuk mengubah warna tulisan pada baris terakhir
+* Bonus: menambah kode berikut di elemen `<tr>` pada tabel di berkas `main.html` serta menambahkan style CSS baru untuk mengubah warna tulisan pada baris terakhir
 ```
 <tr {% if forloop.last %}class="last-row"{% endif %}>
 ```
