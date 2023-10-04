@@ -3,18 +3,18 @@ NPM: 2206814551<br>
 Kelas: PBP B
 <hr>
 
-1. Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya.
+1. Jelaskan manfaat dari setiap *element selector* dan kapan waktu yang tepat untuk menggunakannya.
 
 **Jawab:**
 
-* **Element Selector**
-Type selector memungkinkan kita untuk memilih semua elemen dengan jenis atau nama tertentu, seperti `<p>`, `<h1>`, `<div>`, dll. Type selector digunakan ketika kita ingin menerapkan gaya yang sama pada semua elemen dengan jenis tertentu. Misalnya, jika kita ingin mengubah gaya teks pada semua `<h2>` menjadi berwarna biru, kita dapat menggunakan `h2` sebagai type selector.
+* **Element Selector**<br>
+Element selector digunakan untuk memilih semua elemen dengan jenis atau nama tertentu, seperti `<p>`, `<h1>`, `<div>`, dan lain-lain. Element selector digunakan ketika ingin menerapkan gaya yang sama pada semua elemen dengan jenis tertentu. Misalnya, jika ingin mengubah gaya teks pada semua `<h2>` menjadi berwarna biru, kita dapat menggunakan `h2` sebagai element selector.
 
-* **ID Selector**
-ID selector memungkinkan kita untuk memilih elemen berdasarkan ID unik yang diberikan. Setiap ID harus unik dalam satu halaman. ID selector digunakan ketika kita ingin menerapkan gaya atau interaksi khusus pada satu elemen tertentu yang memiliki ID unik. Ini sering digunakan untuk tujuan skriping atau navigasi.
+* **ID Selector**<br>
+ID selector digunakan untuk memilih elemen berdasarkan ID unik yang diberikan. ID selector digunakan ketika ingin menerapkan gaya atau interaksi khusus pada satu elemen tertentu yang memiliki ID unik. Selector ini sering digunakan untuk tujuan skriping atau navigasi.
 
-* **Class Selector**
-Class selector memungkinkan kita untuk memilih elemen berdasarkan nama kelas yang diberikan. Sehingga kita dapat menerapkan gaya pada beberapa elemen yang memiliki kelas yang sama. Class selector digunakan ketika kita ingin menerapkan gaya yang sama pada beberapa elemen yang memiliki kelas yang sama. Hal ini sangat berguna untuk mengelompokkan elemen dengan gaya yang serupa.
+* **Class Selector**<br>
+Class selector digunakan untuk memilih elemen berdasarkan nama class yang diberikan. Class selector digunakan ketika ingin menerapkan gaya yang sama pada beberapa elemen yang memiliki class yang sama. Hal ini sangat berguna untuk mengelompokkan elemen dengan gaya yang serupa.
 <br><br>
 
 
@@ -26,45 +26,43 @@ Class selector memungkinkan kita untuk memilih elemen berdasarkan nama kelas yan
 * `<nav>`: Digunakan untuk menentukan bagian navigasi dari halaman web, seperti menu utama atau menu samping.
 * `<section>`: Digunakan untuk mengelompokkan konten yang terkait secara tematis dalam dokumen.
 * `<footer>`: Digunakan untuk mendefinisikan bagian bawah dokumen atau halaman web, biasanya berisi informasi kontak, hak cipta, atau tautan lainnya.
-* `<video>` dan `<audio>`: Digunakan untuk menanamkan video atau audio di dalam halaman web dengan kontrol pemutaran yang sesuai.
+* `<video>` dan `<audio>`: Digunakan untuk menyisipkan video atau audio di dalam halaman web dengan kontrol pemutaran yang sesuai.
 * `<form>`: Digunakan untuk membuat formulir yang memungkinkan pengguna mengirimkan data, seperti teks, pilihan, atau file, ke server web.
-* `<input>`: Digunakan dalam formulir untuk membuat berbagai jenis input, seperti teks, kotak centang (checkbox), tombol radio (radio button), dan banyak lagi.
-* `<button>`: Digunakan untuk membuat tombol interaktif yang dapat memicu tindakan atau fungsi dengan JavaScript.
-* `<a>`: Digunakan untuk membuat tautan atau hyperlink ke halaman lain atau sumber daya lain di web.
+* `<input>`: Digunakan dalam formulir untuk membuat berbagai jenis input, seperti teks, kotak centang (checkbox), tombol radio (radio button), dan lain-lain.
+* `<button>`: Digunakan untuk membuat tombol interaktif yang dapat memicu tindakan atau fungsi.
+* `<a>`: Digunakan untuk membuat tautan atau *hyperlink* ke halaman lain atau sumber daya lain di web.
 * `<img>`: Digunakan untuk menampilkan gambar di halaman web.
-* `<ul>`, `<ol>`, dan `<li>`: Digunakan untuk membuat daftar tak terurut (unordered list), daftar terurut (ordered list), dan item dalam daftar, masing-masing.
+* `<ul>`, `<ol>`, dan `<li>`: Digunakan untuk membuat daftar tak terurut (unordered list), daftar terurut (ordered list), dan item dalam daftar.
 * `<table>`, `<tr>`, `<th>`, dan `<td>`: Digunakan untuk membuat tabel dan baris dalam tabel bersama dengan sel dan judul.
 <br><br>
 
 
-3. Jelaskan perbedaan antara margin dan padding.
+3. Jelaskan perbedaan antara *margin* dan *padding*.
 
 **Jawab:**
 
-* **Margin**
+* **Margin**<br>
 Margin adalah ruang di luar elemen HTML, yang menentukan jarak antara elemen tersebut dengan elemen-elemen lain di sekitarnya.
-Margin tidak memiliki latar belakang dan biasanya digunakan untuk mengendalikan jarak antara elemen dengan elemen-elemen lain di luar elemen tersebut. Margin bersifat transparan, artinya tidak dapat diisi dengan warna atau gambar latar belakang.
-Margin dapat memiliki nilai positif atau negatif, yang memungkinkan kita untuk menggeser elemen ke dalam atau keluar dari elemen-elemen di sekitarnya.
+Margin tidak memiliki latar belakang dan biasanya digunakan untuk mengendalikan jarak antara elemen dengan elemen-elemen lain di luar elemen tersebut. Margin bersifat transparan, artinya tidak dapat diisi dengan warna atau gambar latar belakang. Margin dapat memiliki nilai positif atau negatif, yang memungkinkan kita untuk menggeser elemen ke dalam atau keluar dari elemen-elemen di sekitarnya.
 
-* **Padding**
-Padding adalah ruang di dalam elemen HTML, yang menentukan jarak antara konten elemen tersebut dengan tepi elemen tersebut (batas elemen dan kontennya). Padding mempengaruhi area di sekitar konten elemen, dan sering digunakan untuk memberikan ruang di sekitar teks atau elemen-elemen lain di dalam elemen tersebut. Padding dapat memiliki latar belakang, sehingga kita dapat mengisi padding dengan warna atau gambar latar belakang. Padding tidak dapat memiliki nilai negatif.
+* **Padding**<br>
+Padding adalah ruang di dalam elemen HTML, yang menentukan jarak antara konten elemen tersebut dengan tepi elemen tersebut (batas elemen dan kontennya). Padding mempengaruhi area di sekitar konten elemen, dan digunakan untuk memberikan ruang di sekitar teks atau elemen-elemen lain di dalam elemen tersebut. Padding dapat memiliki latar belakang, sehingga kita dapat mengisi padding dengan warna atau gambar latar belakang, namun Padding tidak dapat memiliki nilai negatif.
 <br><br>
 
 
-4. Jelaskan perbedaan antara framework CSS Tailwind dan Bootstrap. Kapan sebaiknya kita menggunakan Bootstrap daripada Tailwind, dan sebaliknya?
+4. Jelaskan perbedaan antara *framework* CSS Tailwind dan Bootstrap. Kapan sebaiknya kita menggunakan Bootstrap daripada Tailwind, dan sebaliknya?
 
 **Jawab**
 
-* **Bootstrap** memiliki desain yang lebih "opiniated" atau lebih banyak panduan desain yang telah ditentukan sebelumnya. Hal ini berarti kita akan mendapatkan tampilan yang konsisten dan bagus secara default, tetapi lebih sulit untuk mengubah tampilan menjadi sesuatu yang benar-benar unik. Bootstrap menyediakan banyak komponen siap pakai dengan desain yang telah ditentukan sebelumnya, namun Bootstrap memiliki ukuran berkas CSS yang lebih besar karena menyertakan banyak fitur dan komponen yang lebih banyak.
-* **Tailwind** memiliki pendekatan yang lebih "utility-first." Hal ini berarti Tailwind memberikan banyak kelas utilitas yang memungkinkan kita untuk merancang tampilan dengan lebih bebas, tetapi Anda perlu lebih banyak bekerja untuk membuat tampilan yang sama dengan Bootstrap. Tailwind memberikan kontrol yang lebih besar atas tampilan elemen-elemen individu. Tailwind memiliki ukuran berkas yang lebih kecil karena hanya memberikan kelas-kelas utilitas yang diperlukan.
-
+* **Bootstrap** memiliki desain yang lebih "opiniated" atau lebih banyak panduan desain yang telah ditentukan sebelumnya. Hal ini berarti kita akan mendapatkan tampilan yang konsisten dan bagus secara *default*, tetapi lebih sulit untuk mengubah tampilan menjadi sesuatu yang benar-benar unik. Bootstrap menyediakan banyak komponen siap pakai dengan desain yang telah ditentukan sebelumnya, namun Bootstrap memiliki ukuran berkas CSS yang lebih besar karena menyertakan banyak fitur dan komponen yang lebih banyak.
+* **Tailwind** memiliki pendekatan yang lebih "utility-first." Hal ini berarti Tailwind memberikan banyak kelas utilitas yang memungkinkan kita untuk merancang tampilan dengan lebih bebas, namun kita perlu lebih banyak bekerja untuk membuat tampilan yang sama dengan Bootstrap. Tailwind memberikan kontrol yang lebih besar atas tampilan elemen-elemen individu. Tailwind memiliki ukuran berkas yang lebih kecil karena hanya memberikan kelas-kelas utilitas yang diperlukan.
 * **Kapan menggunakan Bootstrap**
     * Saat ingin membangun proyek dengan cepat.
     * Saat tidak ingin menghabiskan banyak waktu untuk menyesuaikan desain.
-    * Saat membutuhkan komponen siap pakai seperti navbar, formulir, atau jendela modal.
+    * Saat membutuhkan komponen siap pakai seperti navbar, form, dan lain sebagainya.
 * **Kapan menggunakan Tailwind**
     * Saat ingin kontrol desain yang sangat besar dan fleksibilitas dalam merancang tampilan.
-    * Saat ingin menghindari overhead kelas CSS yang tidak digunakan dalam proyek Anda.
+    * Saat ingin menghindari overhead kelas CSS yang tidak digunakan dalam proyek.
     * Saat merasa nyaman dengan pendekatan "utility-first" dan ingin merancang dengan cepat.
 <br><br>
 
@@ -73,7 +71,7 @@ Padding adalah ruang di dalam elemen HTML, yang menentukan jarak antara konten e
 
 **Jawab:**
 
-* Menambah Bootstrap ke aplikasi dengan mengedit file base.html di template
+* Menambah Bootstrap ke aplikasi dengan mengedit berkas `base.html` di folder template
 ```
 <head>
     {% block meta %}
@@ -86,7 +84,7 @@ Padding adalah ruang di dalam elemen HTML, yang menentukan jarak antara konten e
 </head>
 ```
 * Membuat navbar menggunakan Bootstrap dan menambahkan nama pengguna, link membuat item, dan tombol logout
-* Menambah fitur edit pada aplikasi dengan membuat fungsi edit_product di views.py
+* Menambah fitur edit pada aplikasi dengan membuat fungsi `edit_product` di berkas `views.py`
 ```
 def edit_product(request, id):
     item = Item.objects.get(pk = id)
@@ -99,15 +97,15 @@ def edit_product(request, id):
     context = {'form': form}
     return render(request, "edit_product.html", context)
 ```
-* Membuat berkas edit_product.html kemudian menambah path yang sesuai ke urls.py
+* Membuat berkas `edit_product.html` kemudian menambah path yang sesuai ke urls.py
 ```
 from main.views import edit_product
 ```
 ```
 path('edit-product/<int:id>', edit_product, name='edit_product'),
 ```
-* Mengedit tampilan main.html, login.html, register.html, create_item.html, dan edit_product.html menggunakan CSS dan Bootstrap seperti mengubah warna tabel, warna teks, dan lain sebagainya.
-* Bonus: menambah kode berikut di elemen `<tr>` pada `main.html` serta menambahkan style CSS baru untuk mengubah warna tulisan pada baris terakhir
+* Mengedit tampilan pada berkas `main.html`, `login.html`, `register.html`, `create_item.html`, dan `edit_product.html` menggunakan CSS dan Bootstrap seperti mengubah warna tabel, warna teks, dan lain sebagainya.
+* Bonus: menambah kode berikut di elemen `<tr>` pada berkas `main.html` serta menambahkan style CSS baru untuk mengubah warna tulisan pada baris terakhir
 ```
 <tr {% if forloop.last %}class="last-row"{% endif %}>
 ```
