@@ -5,7 +5,7 @@ Kelas: PBP B
 
 1. Jelaskan manfaat dari setiap *element selector* dan kapan waktu yang tepat untuk menggunakannya.
 
-**Jawab:**
+    **Jawab:**
 
 * **Element Selector**<br>
 Element selector digunakan untuk memilih semua elemen dengan jenis atau nama tertentu, seperti `<p>`, `<h1>`, `<div>`, dan lain-lain. Element selector digunakan ketika ingin menerapkan gaya yang sama pada semua elemen dengan jenis tertentu. Misalnya, jika ingin mengubah gaya teks pada semua `<h2>` menjadi berwarna biru, kita dapat menggunakan `h2` sebagai element selector.
@@ -20,7 +20,7 @@ Class selector digunakan untuk memilih elemen berdasarkan nama class yang diberi
 
 2. Jelaskan HTML5 Tag yang kamu ketahui.
 
-**Jawab:**
+    **Jawab:**
 
 * `<header>`: Digunakan untuk mendefinisikan bagian atas atau kepala dokumen, biasanya berisi judul, logo, dan elemen navigasi situs.
 * `<nav>`: Digunakan untuk menentukan bagian navigasi dari halaman web, seperti menu utama atau menu samping.
@@ -39,7 +39,7 @@ Class selector digunakan untuk memilih elemen berdasarkan nama class yang diberi
 
 3. Jelaskan perbedaan antara *margin* dan *padding*.
 
-**Jawab:**
+    **Jawab:**
 
 * **Margin**<br>
 Margin adalah ruang di luar elemen HTML, yang menentukan jarak antara elemen tersebut dengan elemen-elemen lain di sekitarnya.
@@ -52,7 +52,7 @@ Padding adalah ruang di dalam elemen HTML, yang menentukan jarak antara konten e
 
 4. Jelaskan perbedaan antara *framework* CSS Tailwind dan Bootstrap. Kapan sebaiknya kita menggunakan Bootstrap daripada Tailwind, dan sebaliknya?
 
-**Jawab**
+    **Jawab**
 
 * **Bootstrap** memiliki desain yang lebih "opiniated" atau lebih banyak panduan desain yang telah ditentukan sebelumnya. Hal ini berarti kita akan mendapatkan tampilan yang konsisten dan bagus secara *default*, tetapi lebih sulit untuk mengubah tampilan menjadi sesuatu yang benar-benar unik. Bootstrap menyediakan banyak komponen siap pakai dengan desain yang telah ditentukan sebelumnya, namun Bootstrap memiliki ukuran berkas CSS yang lebih besar karena menyertakan banyak fitur dan komponen yang lebih banyak.
 * **Tailwind** memiliki pendekatan yang lebih "utility-first." Hal ini berarti Tailwind memberikan banyak kelas utilitas yang memungkinkan kita untuk merancang tampilan dengan lebih bebas, namun kita perlu lebih banyak bekerja untuk membuat tampilan yang sama dengan Bootstrap. Tailwind memberikan kontrol yang lebih besar atas tampilan elemen-elemen individu. Tailwind memiliki ukuran berkas yang lebih kecil karena hanya memberikan kelas-kelas utilitas yang diperlukan.
@@ -69,7 +69,7 @@ Padding adalah ruang di dalam elemen HTML, yang menentukan jarak antara konten e
 
 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 
-**Jawab:**
+    **Jawab:**
 
 * Menambah Bootstrap ke aplikasi dengan mengedit berkas `base.html` di folder template
 ```
