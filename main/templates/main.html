@@ -20,34 +20,66 @@
         }
         #header {
             text-align: center;
-            background-color: #4c8bf5;
+            background-color: #0d5fee;
             color: #fff;
         }
         h1 {
-            font-weight: 600;       
+            font-weight: 100;       
             text-align: center;
-            background-color: #4c8bf5;
+            background-color: black;
             color: #fff;
             padding: 10px 0px;
         }
+        .tabel {
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        .last-row {
+            color: #0d5fee;
+        }
     </style>
 
-    <h1>{{ app_name.upper }}</h1>
+    <nav class="navbar .navbar-expand{-sm|-md|-lg|-xl|-xxl}" style="background-color: #0d5fee;">
+        <div class="container-fluid">
+            <a style="font-size: 30px; color: white;" class="navbar-brand" href="{% url 'main:show_main' %}"><b>Weapentory</b></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                <li>
+                    <span class="navbar-brand mb-0 h1" style="color: rgb(209, 200, 200);">{{name}}</span>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color: rgb(209, 200, 200);" href="{% url 'main:create_item' %}">Add New Item</a>
+                </li>
+                <li>
+                    <a href="{% url 'main:logout' %}">
+                    <button class="btn btn-danger" type="button">Logout</button></a>
+                </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-    <h5 style="font-size: 17px;">Name: </h5>
-    <p style="font-size: 17px;">{{ name }}<p>
+    <div style="margin-top: 10px; margin-left: 10px;">
+        <h5 style="font-size: 17px;">Name: </h5>
+        <p style="font-size: 17px;">{{ name }}<p>
 
-    <h5 style="font-size: 17px;">Class: </h5>
-    <p style="font-size: 17px;">{{ class }}<p>
+        <h5 style="font-size: 17px;">Class: </h5>
+        <p style="font-size: 17px;">{{ class }}<p>
+    </div>
 
     {% if messages %}
-    <ul class="messages">
         {% for message in messages %}
-        <li  {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
+        <div class="alert alert-success" style="margin-left: 10px; margin-right: 10px;" role="alert" {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }}
+        </div>
         {% endfor %}
-    </ul>
     {% endif %}
 
+    <div style="margin-left: 10px; margin-right: 10px;">
+
+    
     <table>
         <tr id="header">
             <th>Name</th>
@@ -59,62 +91,48 @@
             <th></th>
             <th></th>
             <th></th>
+            <th></th>
         </tr>
     
         {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
     
         {% for item in items %}
-            <tr>
+            <tr {% if forloop.last %}class="last-row"{% endif %}>
                 <td>{{item.name}}</td>
                 <td style="text-align: center;">{{item.type}}</td>
                 <td style="text-align: center;">{{item.atk}}</td>
                 <td style="text-align: center;">{{item.rarity}}</td>
                 <td>{{item.description}}</td>
                 <td style="text-align: center;">{{item.amount}}</td>
-                <td><a href="{% url 'main:increment_amount' item.id %}">
-                    <button style="background-color: #2ba669; border: none; color: white; 
-                    text-align: center; text-decoration: none; display: inline-block;
-                    font-size: 20px; cursor: pointer; width: 25px; height: 25px; border-radius: 3px;">
-                        <b>+</b>
-                    </button>
+                <td><a href="{% url 'main:increment_amount' item.id %}" class="btn btn-outline-success btn-sm">
+                    +
                 </a></td>
-                <td><a href="{% url 'main:decrement_amount' item.id %}">
-                    <button style="background-color: #ffb411; border: none; color: white;
-                    text-align: center; text-decoration: none; display: inline-block;
-                    font-size: 20px; cursor: pointer; width: 25px; height: 25px; border-radius: 3px;">
-                        <b>-</b>
-                    </button>
+                <td><a href="{% url 'main:decrement_amount' item.id %}" class="btn btn-outline-warning btn-sm" style="width: 27px;">
+                    -
                 </a></td>
-                <td><a href="{% url 'main:delete_item' item.id %}">
-                    <button style="background-color: #A62C2B; border: none; color: white;
-                    text-align: center; text-decoration: none; display: inline-block;
-                    font-size: 14px; cursor: pointer; width: 25px; height: 25px; border-radius: 3px;">
-                        <b>X</b>
-                    </button>
+                <td><a href="{% url 'main:delete_item' item.id %}" class="btn btn-outline-danger btn-sm">
+                    X
                 </a></td>
+                <td>
+                    <a href="{% url 'main:edit_product' item.pk %}" class="btn btn-outline-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
             </tr>
         {% endfor %}
     </table>
-    
+</div>
     <br />
-    
-    <a href="{% url 'main:create_item' %}">
-        <button style="background-color: #4c8bf5; border: none; color: white;
-            padding: 7px 15px; text-align: center; text-decoration: none; display: inline-block;
-            font-size: 15px; cursor: pointer; border-radius: 6px;" >
-            Add New Item
-        </button>
-    </a>
-    
-    <a href="{% url 'main:logout' %}">
-        <button style="background-color: #A62C2B; border: none; color: white;
-        padding: 7px 15px; text-align: center; text-decoration: none; display: inline-block;
-        font-size: 15px; cursor: pointer; border-radius: 6px;">
-            Logout
-        </button>
-    </a>
 
-    <h5>Sesi terakhir login: {{ last_login }}</h5>
+    <div style="margin-left: 10px;">
+        <a href="{% url 'main:create_item' %}" class="btn btn-primary">
+                Add New Item
+        </a>
+    
+        <p style="margin-top: 5px;">Sesi terakhir login: {{ last_login }}</p>
+    </div>
+    
+    
 
 {% endblock content %}
 

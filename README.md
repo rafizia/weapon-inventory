@@ -1,60 +1,69 @@
-Link App: [Weapentory](https://weapentory.adaptable.app/main/)<br>
-
 Nama: Muhammad Rafi Zia Ulhaq<br>
 NPM: 2206814551<br>
 Kelas: PBP B
 <hr>
 
-1. Apa itu Django `UserCreationForm`, dan jelaskan apa kelebihan dan kekurangannya?
+1. Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya.
 
 **Jawab:**
 
-Django `UserCreationForm` adalah sebuah form yang digunakan untuk membuat akun pengguna (user account) dalam sebuah aplikasi web. Form ini mengandung berbagai data yang umumnya diperlukan untuk membuat akun pengguna, seperti nama pengguna (username), kata sandi (password), dan konfirmasi kata sandi.
+* **Element Selector**
+Type selector memungkinkan kita untuk memilih semua elemen dengan jenis atau nama tertentu, seperti <p>, <h1>, <div>, dll. Type selector digunakan ketika kita ingin menerapkan gaya yang sama pada semua elemen dengan jenis tertentu. Misalnya, jika kita ingin mengubah gaya teks pada semua <h2> menjadi berwarna biru, kita dapat menggunakan h2 sebagai type selector.
 
-* **Kelebihan**
-    * **Mudah digunakan**: Form ini sudah dikonfigurasi secara default, sehingga pengguna dapat langsung menggunakannya tanpa perlu melakukan konfigurasi tambahan.
-    * **Aman**: Django memiliki sistem keamanan yang kuat yang mencakup proteksi terhadap serangan seperti SQL injection.
-    * **Fleksibel**: Form ini dapat dikonfigurasi ulang sesuai dengan kebutuhan pengguna.
+* **ID Selector**
+ID selector memungkinkan kita untuk memilih elemen berdasarkan ID unik yang diberikan. Setiap ID harus unik dalam satu halaman. ID selector digunakan ketika kita ingin menerapkan gaya atau interaksi khusus pada satu elemen tertentu yang memiliki ID unik. Ini sering digunakan untuk tujuan skriping atau navigasi.
 
-* **Kekurangan**
-    * **Tidak dapat disesuaikan secara penuh**: Form ini sudah dikonfigurasi secara default, sehingga pengguna tidak dapat menyesuaikannya secara penuh.
-    * **Tampilan standar**: UserCreationForm memiliki tampilan standar yang mungkin perlu disesuaikan agar sesuai dengan desain tampilan yang diinginkan.
+* **Class Selector**
+Class selector memungkinkan kita untuk memilih elemen berdasarkan nama kelas yang diberikan. Sehingga kita dapat menerapkan gaya pada beberapa elemen yang memiliki kelas yang sama. Class selector digunakan ketika kita ingin menerapkan gaya yang sama pada beberapa elemen yang memiliki kelas yang sama. Hal ini sangat berguna untuk mengelompokkan elemen dengan gaya yang serupa.
 <br><br>
 
 
-2. Apa perbedaan antara autentikasi dan otorisasi dalam konteks Django, dan mengapa keduanya penting?
+2. Jelaskan HTML5 Tag yang kamu ketahui.
 
 **Jawab:**
 
-* **Autentikasi**<br>
-Autentikasi adalah proses verifikasi identitas pengguna. Tujuan autentikasi adalah untuk memastikan bahwa pengguna memiliki identitas yang valid dan sah sebelum memberikan akses ke bagian tertentu dari aplikasi. Contoh: pengguna memasukkan nama pengguna dan kata sandi untuk masuk ke aplikasi.
+* `<header>`: Digunakan untuk mendefinisikan bagian atas atau kepala dokumen, biasanya berisi judul, logo, dan elemen navigasi situs.
+* `<nav>`: Digunakan untuk menentukan bagian navigasi dari halaman web, seperti menu utama atau menu samping.
+* `<section>`: Digunakan untuk mengelompokkan konten yang terkait secara tematis dalam dokumen.
+* `<footer>`: Digunakan untuk mendefinisikan bagian bawah dokumen atau halaman web, biasanya berisi informasi kontak, hak cipta, atau tautan lainnya.
+* `<video>` dan `<audio>`: Digunakan untuk menanamkan video atau audio di dalam halaman web dengan kontrol pemutaran yang sesuai.
+* `<form>`: Digunakan untuk membuat formulir yang memungkinkan pengguna mengirimkan data, seperti teks, pilihan, atau file, ke server web.
+* `<input>`: Digunakan dalam formulir untuk membuat berbagai jenis input, seperti teks, kotak centang (checkbox), tombol radio (radio button), dan banyak lagi.
+* `<button>`: Digunakan untuk membuat tombol interaktif yang dapat memicu tindakan atau fungsi dengan JavaScript.
+* `<a>`: Digunakan untuk membuat tautan atau hyperlink ke halaman lain atau sumber daya lain di web.
+* `<img>`: Digunakan untuk menampilkan gambar di halaman web.
+* `<ul>`, `<ol>`, dan `<li>`: Digunakan untuk membuat daftar tak terurut (unordered list), daftar terurut (ordered list), dan item dalam daftar, masing-masing.
+* `<table>`, `<tr>`, `<th>`, dan `<td>`: Digunakan untuk membuat tabel dan baris dalam tabel bersama dengan sel dan judul.
 
-* **Otorisasi**<br>
-Otorisasi adalah proses yang menentukan hak akses apa yang dimiliki oleh pengguna yang telah terotentikasi. Otorisasi memastikan bahwa meskipun seorang pengguna telah terotentikasi, ia hanya memiliki akses ke bagian aplikasi yang sesuai dengan peran atau izinnya. Contoh: hanya administrator yang dapat mengedit atau menghapus data, sementara pengguna biasa hanya dapat melihatnya.
-<br><br>
-
-
-3. Apa itu cookies dalam konteks aplikasi web, dan bagaimana Django menggunakan cookies untuk mengelola data sesi pengguna?
+3. Jelaskan perbedaan antara margin dan padding.
 
 **Jawab:**
 
-Cookies adalah mekanisme yang digunakan dalam aplikasi web untuk menyimpan data pada sisi klien (pada perangkat pengguna) untuk berbagai tujuan seperti pengelolaan informasi sesi pengguna, pelacakan pengguna, preferensi pengguna, dan iklan. Django menggunakan cookies untuk mengelola data sesi pengguna dengan cara berikut:
-* Saat pengguna masuk ke aplikasi, Django membuat objek `Session` baru. Objek ini menyimpan informasi tentang pengguna, seperti nama pengguna, terakhir login, dan pengaturan lainnya.
-* Django menyimpan objek `Session` dalam cookie yang dikirim ke browser pengguna.
-* Ketika pengguna mengunjungi halaman lain di aplikasi, browser akan mengirimkan cookie tersebut ke server.
-* Server menggunakan data sesi untuk menentukan apakah pengguna telah masuk dan untuk menyimpan informasi tentang pengguna.
+* **Margin**
+Margin adalah ruang di luar elemen HTML, yang menentukan jarak antara elemen tersebut dengan elemen-elemen lain di sekitarnya.
+Margin tidak memiliki latar belakang dan biasanya digunakan untuk mengendalikan jarak antara elemen dengan elemen-elemen lain di luar elemen tersebut. Margin bersifat transparan, artinya tidak dapat diisi dengan warna atau gambar latar belakang.
+Margin dapat memiliki nilai positif atau negatif, yang memungkinkan kita untuk menggeser elemen ke dalam atau keluar dari elemen-elemen di sekitarnya.
+
+* **Padding**
+Padding adalah ruang di dalam elemen HTML, yang menentukan jarak antara konten elemen tersebut dengan tepi elemen tersebut (batas elemen dan kontennya). Padding mempengaruhi area di sekitar konten elemen, dan sering digunakan untuk memberikan ruang di sekitar teks atau elemen-elemen lain di dalam elemen tersebut. Padding dapat memiliki latar belakang, sehingga kita dapat mengisi padding dengan warna atau gambar latar belakang. Padding tidak dapat memiliki nilai negatif.
 <br><br>
 
 
-4. Apakah penggunaan cookies aman secara default dalam pengembangan web, atau apakah ada risiko potensial yang harus diwaspadai?
+4. Jelaskan perbedaan antara framework CSS Tailwind dan Bootstrap. Kapan sebaiknya kita menggunakan Bootstrap daripada Tailwind, dan sebaliknya?
 
 **Jawab**
 
-Penggunaan cookies secara default dalam pengembangan web tidak sepenuhnya aman. Terdapat beberapa risiko yang harus diwaspadai, antara lain:
-* **Kebocoran data**: Cookies dapat diretas untuk dicuri datanya. Data yang dicuri dapat berupa informasi pribadi, seperti nama pengguna, alamat email, dan kata sandi.
-* **Pelacakan**: Cookies dapat digunakan untuk melacak aktivitas pengguna di web. Data pelacakan ini dapat digunakan untuk menargetkan iklan atau untuk mengumpulkan informasi tentang perilaku pengguna.
-* **Penggunaan cookie oleh pihak ketiga**: Cookies dapat digunakan oleh pihak ketiga, seperti penyedia layanan iklan. Pihak ketiga dapat menggunakan cookie untuk melacak aktivitas pengguna di berbagai situs web.
-* **Pembajakan session**: Jika cookie sesi pengguna tidak dienkripsi atau diatur dengan baik, penyerang dapat mencuri cookie tersebut dan mengakses sesi pengguna yang sudah ada.
+* **Bootstrap** memiliki desain yang lebih "opiniated" atau lebih banyak panduan desain yang telah ditentukan sebelumnya. Hal ini berarti kita akan mendapatkan tampilan yang konsisten dan bagus secara default, tetapi lebih sulit untuk mengubah tampilan menjadi sesuatu yang benar-benar unik. Bootstrap menyediakan banyak komponen siap pakai dengan desain yang telah ditentukan sebelumnya, namun Bootstrap memiliki ukuran berkas CSS yang lebih besar karena menyertakan banyak fitur dan komponen yang lebih banyak.
+* **Tailwind** memiliki pendekatan yang lebih "utility-first." Hal ini berarti Tailwind memberikan banyak kelas utilitas yang memungkinkan kita untuk merancang tampilan dengan lebih bebas, tetapi Anda perlu lebih banyak bekerja untuk membuat tampilan yang sama dengan Bootstrap. Tailwind memberikan kontrol yang lebih besar atas tampilan elemen-elemen individu. Tailwind memiliki ukuran berkas yang lebih kecil karena hanya memberikan kelas-kelas utilitas yang diperlukan.
+
+* **Kapan menggunakan Bootstrap**
+    * Saat ingin membangun proyek dengan cepat.
+    * Saat tidak ingin menghabiskan banyak waktu untuk menyesuaikan desain.
+    * Saat membutuhkan komponen siap pakai seperti navbar, formulir, atau jendela modal.
+* **Kapan menggunakan Tailwind**
+    * Saat ingin kontrol desain yang sangat besar dan fleksibilitas dalam merancang tampilan.
+    * Saat ingin menghindari overhead kelas CSS yang tidak digunakan dalam proyek Anda.
+    * Saat merasa nyaman dengan pendekatan "utility-first" dan ingin merancang dengan cepat.
 <br><br>
 
 
@@ -62,156 +71,49 @@ Penggunaan cookies secara default dalam pengembangan web tidak sepenuhnya aman. 
 
 **Jawab:**
 
-a. Mengimplementasikan fungsi registrasi, login, dan logout untuk memungkinkan pengguna untuk mengakses aplikasi sebelumnya dengan lancar.
-* Membuka berkas `views.py` dan mengimpor fungsi-fungsi yang diperlukan 
+* Menambah Bootstrap ke aplikasi dengan mengedit file base.html di template
 ```
-from django.shortcuts import redirect
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib import messages 
-from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.decorators import login_required
+<head>
+    {% block meta %}
+        ...
+    {% endblock meta %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+J4jsl5c9zdLKaUk5Ae5f5b1bw6AUn5f5v8FZJoMxm6f5cH1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+</head>
 ```
-* Membuat fungsi dengan nama `register`, `login_user`, `logout_user` yang masing-masing menerima parameter `request`
+* Membuat navbar menggunakan Bootstrap dan menambahkan nama pengguna, link membuat item, dan tombol logout
+* Menambah fitur edit pada aplikasi dengan membuat fungsi edit_product di views.py
 ```
-def register(request):
-    form = UserCreationForm()
-
-    if request.method == "POST":
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Your account has been successfully created!')
-            return redirect('main:login')
-    context = {'form':form}
-    return render(request, 'register.html', context)
-
-def login_user(request):
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            response = HttpResponseRedirect(reverse("main:show_main")) 
-            response.set_cookie('last_login', str(datetime.datetime.now()))
-            return response
-        else:
-            messages.info(request, 'Sorry, incorrect username or password. Please try again.')
-    context = {}
-    return render(request, 'login.html', context)
-
-def logout_user(request):
-    logout(request)
-    response = HttpResponseRedirect(reverse('main:login'))
-    response.delete_cookie('last_login')
-    return response
-```
-* Menambahkan kode berikut di atas fungsi `show_main`
-```
-@login_required(login_url='/login')
-```
-* Membuat berkas `register.html`, `login.html` di folder `templates`
-* Menambahkan button logout di berkas `main.html`
-* Mengimpor fungsi-fungsi yang telah dibuat ke berkas `urls.py` lalu menambahkan path url yang sesuai ke `urlpatterns`
-```
-    path('register/', register, name='register'),
-    path('login/', login_user, name='login'),
-    path('logout/', logout_user, name='logout'),
-```
-
-b. Membuat dua akun pengguna dengan masing-masing tiga dummy data menggunakan model yang telah dibuat pada aplikasi sebelumnya untuk setiap akun di lokal.
-* Register dua akun pengguna baru kemudian menambahkan masing-masing akun dengan tiga dummy data dengan `Add New Item`
-
-c. Menghubungkan model `Item` dengan `User`.
-* Menambahkan kode berikut untuk mengimpor model di berkas `models.py`
-```
-from django.contrib.auth.models import User
-```
-* Menambahkan kode berikut ke `class Item`
-```
-user = models.ForeignKey(User, on_delete=models.CASCADE)
-```
-* Mengganti fungsi `create_item` di berkas `views.py` menjadi
-```
-form = ItemForm(request.POST or None)
+def edit_product(request, id):
+    item = Item.objects.get(pk = id)
+    form = ItemForm(request.POST or None, instance=item)
 
     if form.is_valid() and request.method == "POST":
-        item = form.save(commit=False)
-        item.user = request.user
-        item.save()
+        form.save()
         return HttpResponseRedirect(reverse('main:show_main'))
-    ...
-```
-* Mengubah fungsi `show_main` menjadi
-```
-def show_main(request):
-    items = Item.objects.filter(user=request.user)
 
-    context = {
-        'app_name' : 'Weapentory',
-        'name': request.user.username,
-        'class': 'PBP B',
-        'items': items,
+    context = {'form': form}
+    return render(request, "edit_product.html", context)
+```
+* Membuat berkas edit_product.html kemudian menambah path yang sesuai ke urls.py
+```
+from main.views import edit_product
+```
+```
+path('edit-product/<int:id>', edit_product, name='edit_product'),
+```
+* Mengedit tampilan main.html, login.html, register.html, create_item.html, dan edit_product.html menggunakan CSS dan Bootstrap seperti mengubah warna tabel, warna teks, dan lain sebagainya.
+* Bonus
+Menambah kode berikut di elemen `<tr>` pada `main.html` serta menambahkan style CSS baru untuk mengubah warna tulisan pada baris terakhir
+```
+<tr {% if forloop.last %}class="last-row"{% endif %}>
+```
+```
+.last-row {
+        color: #0d5fee;
     }
-
-    return render(request, "main.html", context)
 ```
-* Melakukan migrasi model
-
-d. Menampilkan detail informasi pengguna yang sedang logged in seperti username dan menerapkan `cookies` seperti `last login` pada halaman utama aplikasi.
-* Membuka berkas `views.py` dan mengimpor fungsi-fungsi berikut
-```
-import datetime
-from django.http import HttpResponseRedirect
-from django.urls import reverse
-```
-* Mengubah isi kode `if user is not None` pada fungsi `login_user` menjadi
-```
-if user is not None:
-    login(request, user)
-    response = HttpResponseRedirect(reverse("main:show_main")) 
-    response.set_cookie('last_login', str(datetime.datetime.now()))
-    return response
-```
-* Menambahkan kode berikut pada variabel `context`
-```
-'last_login': request.COOKIES['last_login'],
-```
-* Membuka berkas `main.html` dan menambahkan kode berikut
-```
-<h5>Sesi terakhir login: {{ last_login }}</h5>
-```
-
-e. Bonus
-* Membuat fungsi `delete_item`, `increment_amount`, dan `decrement_amount` yang menerima parameter `request` dan `item_id` di berkas `views.py`
-```
-def delete_item(request, item_id):
-    item = Item.objects.get(pk=item_id)
-    item.delete()
-    return redirect('main:show_main')
-
-def increment_amount(request, item_id):
-    item = Item.objects.get(pk=item_id)
-    item.amount += 1
-    item.save()
-    return redirect('main:show_main')
-
-def decrement_amount(request, item_id):
-    item = Item.objects.get(pk=item_id)
-    if item.amount > 1:
-        item.amount -= 1
-        item.save()
-    else:
-        delete_item(request, item_id)
-    return redirect('main:show_main')
-```
-* Mengimpor fungsi-fungsi tersebut ke `urls.py` dan menambahkan path yang sesuai
-```
-    path('delete/<item_id>/', delete_item, name='delete_item'),
-    path('increment_amount/<item_id>/', increment_amount, name='increment_amount'),
-    path('decrement_amount/<item_id>/', decrement_amount, name='decrement_amount'),
-```
-* Mengedit berkas `main.html` agar dapat menampilkan tombol yang sesuai
-
 
 

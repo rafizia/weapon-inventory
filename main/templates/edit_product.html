@@ -1,6 +1,9 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
+
+{% load static %}
 
 {% block content %}
+
 <style>
     body {
         font-family: sans-serif;
@@ -8,7 +11,7 @@
     th,td {
         padding: 6px;
     }
-    .create_item {
+    .edit_item {
         position: absolute;
         top: 50%;
         left: 50%;
@@ -17,9 +20,9 @@
     }
 </style>
 
-<div class="create_item" style="box-shadow: 2px 2px 12px rgba(0,0,0,0.2), -1px -1px 8px rgba(0,0,0,0.2); 
+<div class="edit_item" style="box-shadow: 2px 2px 12px rgba(0,0,0,0.2), -1px -1px 8px rgba(0,0,0,0.2); 
 padding-top: 50px; padding-bottom: 70px; padding-left: 30px; padding-left: 30px;">
-    <h1>Add New Item</h1>
+    <h1>Edit Product</h1>
 
     <form method="POST">
         {% csrf_token %}
@@ -30,7 +33,7 @@ padding-top: 50px; padding-bottom: 70px; padding-left: 30px; padding-left: 30px;
                 <td>
                     <input style="background-color: #0d5fee; border: none; color: white;
                     padding: 5px 15px; text-align: center; text-decoration: none; display: inline-block;
-                    font-size: 15px; cursor: pointer; border-radius: 6px;" type="submit" value="Add Item"/>
+                    font-size: 15px; cursor: pointer; border-radius: 6px;" type="submit" value="Edit Item"/>
                 </td>
             </tr>
         </table>
