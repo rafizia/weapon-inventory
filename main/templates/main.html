@@ -3,32 +3,42 @@
 {% block content %}
     <style>
         body {
-            font-family: sans-serif;
-            
-        }
-        th,td{
-            padding: 12px;
-            border-bottom: 1px solid #ddd;
-            font-size: 15px;
+            font-family: "Roboto", sans-serif;
+            background-color: #1f232c;
+            color: white;
         }
         table {
-            border:1px solid #bdc3c7; border-collapse: collapse;
+            border-collapse: collapse;
+            font-size: 0.9em;
+            border-radius: 5px 5px 0 0;
             box-shadow: 2px 2px 12px rgba(0,0,0,0.2), -1px -1px 8px rgba(0,0,0,0.2);
+        }
+        th,td{
+            padding: 12px 15px;
+            font-size: 15px;
+            background-color:  #262a33;
+        }
+        th {
+            text-align: center;
+            background-color: #1d2029;
+            color: #42faac;
+        }
+        tr {
+            border-bottom: 1px solid #1d2029;
         }
         tr:nth-child(odd) {
             background-color: #eeeeee;
         }
         #header {
             text-align: center;
-            background-color: #0d5fee;
-            color: #fff;
+            background-color: #42faac;
+            color: #42faac;
         }
         h1 {
             font-weight: 100;       
             text-align: center;
-            background-color: black;
-            color: #fff;
-            padding: 10px 0px;
+            color: #42faac;
+            padding: 0px 0px;
         }
         .tabel {
             margin-left: 10px;
@@ -37,26 +47,37 @@
         .last-row {
             color: #0d5fee;
         }
+        .btn-outline-custom {
+            color: #42faac;
+            background-color: transparent;
+            border-color: #42faac;
+        }
+        .btn-outline-custom:hover {
+            background-color: #42faac;
+            color: #262a33;
+        }
+        input {
+            background-color: #1f232c;
+        }
     </style>
 
-    <nav class="navbar .navbar-expand{-sm|-md|-lg|-xl|-xxl}" style="background-color: #0d5fee;">
+    <nav class="navbar navbar-expand-sm" style="background-color: #1d2029;">
         <div class="container-fluid">
-            <a style="font-size: 30px; color: white;" class="navbar-brand" href="{% url 'main:show_main' %}"><b>Weapentory</b></a>
+            <a style="font-size: 30px; color: #42faac;" class="navbar-brand" href="{% url 'main:show_main' %}"><b>Weapentory</b></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon" style="color: #0d5fee;"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                <li>
-                    <span class="navbar-brand mb-0 h1" style="color: rgb(209, 200, 200);">{{name}}</span>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" style="color: rgb(209, 200, 200);" href="{% url 'main:create_item' %}">Add New Item</a>
-                </li>
-                <li>
-                    <a href="{% url 'main:logout' %}">
-                    <button class="btn btn-danger" type="button">Logout</button></a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="color: #40ce93">{{name}}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" style="color: #40ce93" data-bs-toggle="modal" data-bs-target="#exampleModal">Add New Item</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="color: rgb(233, 15, 15)" href="{% url 'main:logout' %}">Logout</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -78,61 +99,124 @@
     {% endif %}
 
     <div style="margin-left: 10px; margin-right: 10px;">
-
-    
-    <table>
-        <tr id="header">
-            <th>Name</th>
-            <th>Type</th>
-            <th>ATK</th>
-            <th>Rarity</th>
-            <th>Description</th>
-            <th>Amount</th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-        </tr>
-    
-        {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
-    
-        {% for item in items %}
-            <tr {% if forloop.last %}class="last-row"{% endif %}>
-                <td>{{item.name}}</td>
-                <td style="text-align: center;">{{item.type}}</td>
-                <td style="text-align: center;">{{item.atk}}</td>
-                <td style="text-align: center;">{{item.rarity}}</td>
-                <td>{{item.description}}</td>
-                <td style="text-align: center;">{{item.amount}}</td>
-                <td><a href="{% url 'main:increment_amount' item.id %}" class="btn btn-outline-success btn-sm">
-                    +
-                </a></td>
-                <td><a href="{% url 'main:decrement_amount' item.id %}" class="btn btn-outline-warning btn-sm" style="width: 27px;">
-                    -
-                </a></td>
-                <td><a href="{% url 'main:delete_item' item.id %}" class="btn btn-outline-danger btn-sm">
-                    X
-                </a></td>
-                <td>
-                    <a href="{% url 'main:edit_product' item.pk %}" class="btn btn-outline-primary btn-sm">
-                        Edit
-                    </a>
-                </td>
-            </tr>
-        {% endfor %}
-    </table>
-</div>
-    <br />
-
-    <div style="margin-left: 10px;">
-        <a href="{% url 'main:create_item' %}" class="btn btn-primary">
-                Add New Item
-        </a>
-    
-        <p style="margin-top: 5px;">Sesi terakhir login: {{ last_login }}</p>
+        <table id="item_table"></table>
     </div>
+
+    <br />
     
-    
+    <div style="margin-left: 10px;">
+        <button type="button" class="btn btn-outline-custom" data-bs-toggle="modal" data-bs-target="#exampleModal">Add New Item</button>
+        <p style="margin-top: 10px;">Sesi terakhir login: {{ last_login }}</p>
+        <p id="demo"></p>
+    </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" style="background-color: #262a33;">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Item</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="form" onsubmit="return false;">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="name" class="col-form-label">Name:</label>
+                            <input type="text" class="form-control" id="name" name="name"></input>
+                        </div>
+                        <div class="mb-3">
+                            <label for="type" class="col-form-label">Type:</label>
+                            <input type="text" class="form-control" id="type" name="type"></input>
+                        </div>
+                        <div class="mb-3">
+                            <label for="atk" class="col-form-label">ATK:</label>
+                            <input type="number" class="form-control" id="atk" name="atk"></input>
+                        </div>
+                        <div class="mb-3">
+                            <label for="rarity" class="col-form-label">Rarity:</label>
+                            <input type="text" class="form-control" id="rarity" name="rarity"></input>
+                        </div>
+                        <div class="mb-3">
+                            <label for="description" class="col-form-label">Description:</label>
+                            <textarea class="form-control" id="description" name="description"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="amount" class="col-form-label">Amount:</label>
+                            <input type="number" class="form-control" id="amount" name="amount"></input>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-outline-custom" id="button_add" data-bs-dismiss="modal">Add Item</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function getItems() {
+            return fetch("{% url 'main:get_item_json' %}").then((res) => res.json())
+        }
+        async function refreshItems() {
+            document.getElementById("item_table").innerHTML = ""
+            const items = await getItems()
+            let htmlString = `<tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>ATK</th>
+                <th>Rarity</th>
+                <th>Description</th>
+                <th>Amount</th>
+            </tr>`
+            items.forEach((item) => {
+                htmlString += `\n<tr>
+                <td>${item.fields.name}</td>
+                <td style="text-align: center;">${item.fields.type}</td>
+                <td style="text-align: center;">${item.fields.atk}</td>
+                <td style="text-align: center;">${item.fields.rarity}</td>
+                <td>${item.fields.description}</td>
+                <td style="text-align: center;">${item.fields.amount}</td>
+                <td><button class="btn btn-outline-danger btn-sm" data-item-id="${item.id}">Delete</button></td>
+            </tr>` 
+            
+            })
+            
+            document.getElementById("item_table").innerHTML = htmlString
+        }
+
+        refreshItems()
+        function addItem() {
+            fetch("{% url 'main:add_item_ajax' %}", {
+                method: "POST",
+                body: new FormData(document.querySelector('#form'))
+            }).then(refreshItems)
+
+            document.getElementById("form").reset()
+            return false
+        }
+        document.getElementById("button_add").onclick = addItem
+
+        document.querySelectorAll('.btn btn-outline-danger btn-sm').forEach(button => {
+            button.addEventListener('click', function() {
+                const itemId = this.getAttribute('data-item-id');
+
+                fetch(`/delete_item/${itemId}/`, {
+                    method: 'DELETE',
+                })
+                .then(response => {
+                    if (response.ok) {
+                        this.closest('tr').remove();
+                    } else {
+                        console.error('Gagal menghapus item.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Terjadi kesalahan:', error);
+                });
+            });
+        });
+    </script>
 
 {% endblock content %}
 

@@ -4,12 +4,13 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 import datetime
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseNotFound, HttpResponseRedirect, HttpResponse, JsonResponse
 from django.urls import reverse
 from django.core import serializers
 from main.forms import ItemForm
 from main.models import Item
 from django.db.models import F
+from django.views.decorators.csrf import csrf_exempt
 
 @login_required(login_url='/login')
 def show_main(request):
@@ -87,10 +88,14 @@ def logout_user(request):
     response.delete_cookie('last_login')
     return response
 
+@csrf_exempt
 def delete_item(request, item_id):
-    item = Item.objects.get(pk=item_id)
-    item.delete()
-    return redirect('main:show_main')
+    try:
+        item = Item.objects.get(id=item_id)
+        item.delete()
+        return JsonResponse({'message': 'Item berhasil dihapus'})
+    except Item.DoesNotExist:
+        return JsonResponse({'message': 'Item tidak ditemukan'}, status=404)
 
 def increment_amount(request, item_id):
     item = Item.objects.get(pk=item_id)
@@ -118,5 +123,27 @@ def edit_product(request, id):
     context = {'form': form}
     return render(request, "edit_product.html", context)
 
-    
+def get_item_json(request):
+    product_item = Item.objects.all()
+    return HttpResponse(serializers.serialize('json', product_item))
+
+@csrf_exempt
+def add_item_ajax(request):
+    if request.method == 'POST':
+        name = request.POST.get("name")
+        type = request.POST.get("type")
+        atk = request.POST.get("atk")
+        rarity = request.POST.get("rarity")
+        description = request.POST.get("description")
+        amount = request.POST.get("amount")
+        user = request.user
+
+        new_product = Item(name=name, type=type, atk=atk, rarity=rarity, description=description, amount=amount, user=user)
+        new_product.save()
+
+        return HttpResponse(b"CREATED", status=201)
+
+    return HttpResponseNotFound()
+
+
     
