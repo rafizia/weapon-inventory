@@ -1,9 +1,10 @@
 Nama: Muhammad Rafi Zia Ulhaq<br>
 NPM: 2206814551<br>
 Kelas: PBP B
+Tautan Aplikasi: [Weapentory](http://muhammad-rafi22-tugas.pbp.cs.ui.ac.id/)
 <hr>
 
-1. Jelaskan perbedaan antara asynchronous programming dengan synchronous programming.
+1. Jelaskan perbedaan antara *asynchronous programming* dengan *synchronous programming*.
 
     **Jawab:**
 
@@ -62,6 +63,7 @@ def get_item_json(request):
 ```
 * Membuat fungsi baru pada `views.py` dengan nama `add_item_ajax` yang menerima parameter request serta menambah dekorator `@csrf_exempt` di atas fungsi tersebut.
 ```
+@csrf_exempt
 def add_item_ajax(request):
     if request.method == 'POST':
         name = request.POST.get("name")
