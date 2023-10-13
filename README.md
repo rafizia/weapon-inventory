@@ -1,6 +1,6 @@
 Nama: Muhammad Rafi Zia Ulhaq<br>
 NPM: 2206814551<br>
-Kelas: PBP B
+Kelas: PBP B<br>
 Tautan Aplikasi: [Weapentory](http://muhammad-rafi22-tugas.pbp.cs.ui.ac.id/)
 <hr>
 
